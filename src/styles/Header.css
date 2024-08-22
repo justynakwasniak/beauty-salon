@@ -1,0 +1,14 @@
+.header-container {
+  background-image: url("../assets/bs1.webp"), url("../assets/bs2.webp"),
+    url("../assets/bs3.webp");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Adjust height as needed */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
+  color: #f4a6b0; /* Text color */
+  text-align: center;
+  position: relative;
+}
+
+/* Additional styles */

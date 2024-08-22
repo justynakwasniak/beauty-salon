@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/Header.css";
+
+const images = [
+  "../assets/bs1.webp",
+  "../assets/bs2.webp",
+  "../assets/bs3.webp",
+];
 
 const Header: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handlePrevClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
-    <header className="header-container">
+    <header
+      className="header-container"
+      style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+    >
       <nav className="nav-bar">
         <ul className="nav-list">
           <li>
@@ -32,7 +56,9 @@ const Header: React.FC = () => {
       <h1>BeautySalon</h1>
       <p className="small-paragraph">Transforming beauty into confidence.</p>
       <div className="slider-container">
-        <button className="prev-btn">Poprzednie</button>
+        <button className="prev-btn" onClick={handlePrevClick}>
+          Poprzednie
+        </button>
         <div className="social-links">
           <a
             href="https://www.instagram.com"
@@ -54,7 +80,9 @@ const Header: React.FC = () => {
           <span className="dot"></span>
           <span className="dot"></span>
         </div>
-        <button className="next-btn">Następne</button>
+        <button className="next-btn" onClick={handleNextClick}>
+          Następne
+        </button>
       </div>
     </header>
   );

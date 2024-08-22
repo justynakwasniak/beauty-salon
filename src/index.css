@@ -8,6 +8,98 @@ h1,
 h2 {
   color: #f4a6b0;
 }
+/* Styl dla dużych ekranów (desktop) */
+@media (min-width: 1024px) {
+  .nav-list {
+    gap: 20px;
+  }
+
+  .slider-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .prev-btn,
+  .next-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .social-links {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+  }
+}
+
+/* Styl dla średnich ekranów (tablety) */
+@media (max-width: 1024px) {
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .slider-container {
+    flex-direction: column;
+  }
+
+  .prev-btn,
+  .next-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .social-links {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* Styl dla małych ekranów (smartfony) */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .reserve-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slider-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .slider-nav {
+    position: static;
+    margin: 20px 0;
+  }
+}
+
 .header-container {
   background-image: url("image1.jpg"), url("image2.jpg"), url("image3.jpg");
   background-size: cover;
