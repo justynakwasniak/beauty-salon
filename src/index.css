@@ -1,0 +1,164 @@
+header {
+  background-color: #f0e5de;
+
+  padding: 20px;
+}
+
+h1,
+h2 {
+  color: #f4a6b0;
+}
+.header-container {
+  background-image: url("image1.jpg"), url("image2.jpg"), url("image3.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  color: #f4a6b0;
+  text-align: center;
+  position: relative;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-list li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.reserve-btn {
+  background-color: #2d3a6f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.small-paragraph {
+  font-size: 0.9rem;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%;
+  background-color: #f4a6b0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust shadow if needed */
+  overflow: hidden;
+}
+
+.social-links a {
+  color: #f4a6b0;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.social-link img {
+  width: 20px; /* Adjust size of icons */
+  height: 20px; /* Adjust size of icons */
+  object-fit: contain;
+}
+
+.instagram {
+  /* Custom styles for Instagram link if needed */
+}
+
+.youtube {
+  /* Custom styles for YouTube link if needed */
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 50px; /* Position slider nav above the buttons */
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #2d3a6f;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+}
+.reserve-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.phone-number {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.slider-nav-dots {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.prev-btn,
+.next-btn {
+  background-color: #2d3a6f;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #2d3a6f;
+}
+
+.slider-container .prev-btn,
+.slider-container .next-btn {
+  position: absolute;
+  bottom: 10px; /* Adjust based on design */
+  padding: 10px 20px;
+}
+
+.prev-btn {
+  right: 150px; /* Adjust spacing from the right */
+}
+
+.next-btn {
+  right: 40px; /* Adjust spacing from the right */
+}
