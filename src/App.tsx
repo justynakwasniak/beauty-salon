@@ -5,6 +5,7 @@ import Team from "./components/Team";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
 import CompanyAd from "./components/CompanyAd";
+import Kosmetikos from "./components/Kosmetikos";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <Services />
       <CompanyAd />
       <Team />
+      <Kosmetikos />
       <Contact />
     </div>
   );
