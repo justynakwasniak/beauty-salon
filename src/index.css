@@ -1,7 +1,7 @@
 header {
   background-color: #f0e5de;
 
-  padding: 20px;
+  padding: 10px;
 }
 
 h1,
@@ -108,10 +108,13 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0 10px;
   color: #f4a6b0;
   text-align: center;
   position: relative;
+  background-attachment: fixed;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav-bar {
@@ -203,14 +206,20 @@ h2 {
   left: 50%;
   transform: translateX(-50%);
   gap: 10px;
+  margin-top: 20px;
 }
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background-color: #2d3a6f;
   border-radius: 50%;
   display: inline-block;
   margin: 0 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.dot.active {
+  background-color: #f4a6b0; /* Zmiana koloru dla aktywnej kropki */
+  transform: scale(1.5); /* Powiększenie aktywnej kropki */
 }
 .reserve-section {
   display: flex;

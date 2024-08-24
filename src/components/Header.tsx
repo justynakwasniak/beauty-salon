@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
 
-const images = [
-  "../assets/bs1.webp",
-  "../assets/bs2.webp",
-  "../assets/bs3.webp",
-];
+// Importowanie obrazów
+import bs1 from "../assets/bs1.webp";
+import bs2 from "../assets/bs2.webp";
+import bs3 from "../assets/bs3.webp";
+
+const images = [bs1, bs2, bs3];
 
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -76,9 +77,12 @@ const Header: React.FC = () => {
           </a>
         </div>
         <div className="slider-nav">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${currentImageIndex === index ? "active" : ""}`}
+            ></span>
+          ))}
         </div>
         <button className="next-btn" onClick={handleNextClick}>
           Następne
