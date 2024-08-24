@@ -1,0 +1,22 @@
+.about-us-container {
+  padding: 50px 0;
+}
+
+.about-us-images img {
+  max-height: 500px; /* Ustala maksymalną wysokość obrazków */
+  object-fit: cover; /* Zapewnia, że obrazek wypełnia kontener bez zniekształceń */
+  border-radius: 8px; /* Opcjonalnie: zaokrąglenie rogów obrazków */
+}
+
+.about-us-images {
+  display: flex;
+  justify-content: space-between; /* Rozkłada obrazki na całą szerokość kontenera */
+  align-items: center; /* Wyrównuje obrazki w pionie */
+}
+
+.image-style {
+  width: 48%; /* Szerokość obrazków (możesz dostosować według potrzeb) */
+  height: 300px; /* Ustala stałą wysokość obrazków */
+  object-fit: cover; /* Zapewnia, że obrazek wypełnia kontener bez zniekształceń */
+  margin: 0 1%; /* Odstęp między obrazkami */
+}
