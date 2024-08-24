@@ -3,11 +3,11 @@
   color: rgb(17, 9, 9);
   min-height: 600px; /* Minimalna wysokość, dostosuj w razie potrzeby */
   padding: 0; /* Padding można dostosować, jeśli zajdzie taka potrzeba */
-  margin: 0px 100px 0px 100px; /* Marginesy można dostosować, jeśli zajdzie taka potrzeba */
+
   overflow: hidden;
 }
 .services-background {
-  background-image: url("../assets/servicesImage.jpeg"); /* Ścieżka do tła */
+  /* background-image: url("../assets/servicesImage.jpeg"); */
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Tło powinno pozostać w miejscu podczas przewijania */

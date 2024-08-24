@@ -1,5 +1,6 @@
 html {
   overflow: visible;
+  margin: 0 100px 0 100px;
 }
 header {
   background-color: #f0e5de;
@@ -116,8 +117,6 @@ h2 {
   text-align: center;
   position: relative;
   background-attachment: fixed;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .nav-bar {
