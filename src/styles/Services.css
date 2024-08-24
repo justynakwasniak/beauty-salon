@@ -1,0 +1,70 @@
+.services-container {
+  position: relative;
+  color: rgb(17, 9, 9);
+  min-height: 600px; /* Minimalna wysokość, dostosuj w razie potrzeby */
+  padding: 0; /* Padding można dostosować, jeśli zajdzie taka potrzeba */
+  margin: 0px 100px 0px 100px; /* Marginesy można dostosować, jeśli zajdzie taka potrzeba */
+  overflow: hidden;
+}
+.services-background {
+  background-image: url("../assets/servicesImage.jpeg"); /* Ścieżka do tła */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Tło powinno pozostać w miejscu podczas przewijania */
+  height: 100%; /* Wysokość kontenera */
+  width: 100%; /* Szerokość kontenera */
+  position: absolute; /* Ustawienie tła jako absolutnego, aby wypełniało kontener */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ustawienie tła pod innymi elementami */
+  filter: blur(8px); /* Rozmycie tła */
+}
+
+.services-content {
+  position: relative;
+  padding: 20px;
+
+  border-radius: 10px; /* Zaokrąglenie rogów */
+  margin-top: 80px; /* Dostosowanie marginesu górnego dla treści */
+}
+
+.services-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.services-header h1 {
+  font-size: 3rem; /* Rozmiar nagłówka */
+  color: rgb(20, 18, 18); /* Kolor tekstu nagłówka */
+  margin: 0;
+}
+
+.services-list {
+  padding: 20px;
+}
+
+.services-list h2 {
+  font-size: 1.5rem; /* Rozmiar nagłówka dla sekcji usług */
+  margin-bottom: 20px;
+  text-align: center; /* Wyśrodkowanie nagłówków sekcji */
+}
+
+.services-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.services-list ul li {
+  margin-bottom: 10px;
+  font-size: 1.1rem; /* Rozmiar tekstu dla usług i cen */
+  text-align: center; /* Wyśrodkowanie tekstu usług */
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 30px; /* Dodanie marginesu dla przycisku */
+}
+
+.modal-content {
+  border-radius: 8px; /* Opcjonalnie: zaokrąglenie rogów modalu */
+}
