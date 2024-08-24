@@ -1,0 +1,44 @@
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #f7f7f7;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-left {
+  margin-right: 20px; /* Odstęp między kolumnami */
+}
+
+.contact-right {
+  margin-left: 20px; /* Odstęp między kolumnami */
+}
+
+.contact-left h1,
+.contact-right h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-left p,
+.contact-right p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.contact-left .form-control {
+  margin-bottom: 15px;
+}
+
+.contact-left .btn {
+  margin-top: 20px;
+}
