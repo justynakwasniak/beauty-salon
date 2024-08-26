@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 .services-background {
-  /* background-image: url("../assets/servicesImage.jpeg"); */
+  background-image: url("../assets/servicesImage.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Tło powinno pozostać w miejscu podczas przewijania */
