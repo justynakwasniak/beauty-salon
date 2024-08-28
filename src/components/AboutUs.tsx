@@ -32,15 +32,20 @@ const AboutUs: React.FC = () => {
           </div>
 
           {/* Prawa strona z tekstem i przyciskiem */}
-          <div className="col-md-6">
-            <h2>O nas</h2>
+          <div className="col-md-6 ">
+            <p className="about-us">O nas</p>
+            <h2>Najlepszy salon w Twoim mieście</h2>
+            <h4>
+              Jeśli chcesz do Twojego wizerunki dodać więcej pewności siebie- to
+              dobrze trafiłeś.
+            </h4>
             <p>
               Jesteśmy profesjonalnym salonem urody, który od lat dba o piękno
               naszych klientów. Nasz zespół składa się z doświadczonych
               specjalistów, którzy z pasją podchodzą do każdej metamorfozy.
               Zarezerwuj wizytę już dziś i pozwól nam zadbać o Ciebie.
             </p>
-            <Button variant="primary" onClick={handleShowModal}>
+            <Button className="button" onClick={handleShowModal}>
               Rezerwacja Online
             </Button>
           </div>
@@ -78,10 +83,10 @@ const AboutUs: React.FC = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button className="button" onClick={handleCloseModal}>
             Zamknij
           </Button>
-          <Button variant="primary">Wyślij</Button>
+          <Button className="button">Wyślij</Button>
         </Modal.Footer>
       </Modal>
     </section>

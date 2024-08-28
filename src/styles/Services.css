@@ -5,6 +5,7 @@
   padding: 0; /* Padding można dostosować, jeśli zajdzie taka potrzeba */
 
   overflow: hidden;
+  margin-bottom: 100px;
 }
 .services-background {
   background-image: url("../assets/servicesImage.jpeg");

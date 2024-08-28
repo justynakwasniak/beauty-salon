@@ -58,8 +58,8 @@ const Header: React.FC = () => {
           </li>
         </ul>
         <div className="nav-right">
-          <p className="phone-number">Tel: +48 123 456 789</p>
-          <button className="reserve-btn">Rezerwacja Online</button>
+          <a className="phone-number">Tel: +48 123 456 789</a>
+          <button className="reserve-btn">REZERWACJA ONLINE</button>
         </div>
       </nav>
 
@@ -86,9 +86,12 @@ const Header: React.FC = () => {
             </a>
           </div>
           <div className="text-container">
-            <p>Beauty Salon dla kobiet w Krakowie</p>
+            <p className="sub-title">Beauty Salon dla kobiet w Krakowie</p>
             <h1>BeautySalon</h1>
-            <p>Transforming beauty into confidence.</p>
+            <p className="slogan">
+              Jesteśmy ekspertami od kobiecej urody. <br />
+              Pracujemy uważnie i z poczuciem gustu.
+            </p>
           </div>
         </div>
 

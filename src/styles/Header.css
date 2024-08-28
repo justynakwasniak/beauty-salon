@@ -8,6 +8,10 @@
   width: 100%;
   padding: 20px;
   background-color: var(--primary-color);
+  margin-bottom: 100px;
+}
+h1 {
+  font-size: 800px;
 }
 
 .navbar {
@@ -25,6 +29,10 @@
   color: var(--three-color);
   font-weight: bold;
 }
+.nav-item a:hover {
+  color: var(--secondary-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
 
 .nav-right {
   display: flex;
@@ -36,15 +44,30 @@
   color: var(--three-color);
   margin: 0;
   font-size: 1rem;
+  font-weight: bold; /* Pogrubienie tekstu */
+  text-decoration: none; /* Usuwa podkreślenie */
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.phone-number:hover {
+  color: var(--secondary-color); /* Kolor po najechaniu */
 }
 
 .reserve-btn {
-  background-color: var(--three-color);
-  color: white;
-  border: none;
+  background-color: transparent; /* Przezroczyste tło w stanie statycznym */
+  color: var(--secondary-color); /* Kolor tekstu ustawiony na granatowy */
+  border: 2px solid var(--secondary-color); /* Granatowa obwódka */
   padding: 10px 20px;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: 50px; /* Zaokrąglone krawędzie */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Płynna animacja zmiany koloru */
+}
+
+.reserve-btn:hover {
+  background-color: var(--three-color); /* Granatowe tło po najechaniu */
+  color: var(--primary-color);
+  border: 2px solid var(--three-color);
 }
 
 .main-content {
@@ -60,6 +83,7 @@
   align-items: center;
   margin-bottom: -180px;
   margin-left: -50px;
+  /* Zapewnia, że oba elementy są rozmieszczone w pionie */
 }
 
 .social-links {
@@ -69,6 +93,7 @@
   align-items: center;
   margin-right: 40px;
   position: relative;
+  margin-bottom: -100px;
 }
 .social-link {
   display: block;
@@ -76,29 +101,67 @@
   color: #2d3a6f; /* Przykładowy kolor */
   text-decoration: none; /* Usuwa podkreślenie */
   transform: rotate(-90deg); /* Obraca linki o 180 stopni */
-  margin-bottom: 60px; /* Odstęp między linkami */
+  margin-bottom: 80px; /* Odstęp między linkami */
 }
+
 .social-link:hover {
-  color: #f4a6b0; /* Przykładowy kolor na hover */
+  color: var(--secondary-color);
 }
 
 .social-links a {
   text-decoration: none;
   color: var(--secondary-color);
   font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-links a:hover {
+  color: var(--three-color);
+}
+
+.youtube {
+  position: relative; /* Ustawienie pozycji elementu do pozycjonowania pseudo-elementu */
+  padding-left: 50px;
+}
+
+.youtube::before {
+  content: ""; /* Pusty element, który będzie linią */
+  position: absolute;
+  left: 0; /* Ustawienie linii na lewo od linku */
+  top: 50%; /* Umieść linię w połowie wysokości linku */
+  transform: translateY(-50%); /* Środkowanie linii względem tekstu */
+  width: 30px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: #2d3a6f; /* Kolor linii */
 }
 
 .text-container {
   max-width: 500px;
+  margin-top: -300px;
+  text-align: left;
+  color: var(--three-color);
+  margin-left: -30px;
+  margin-bottom: -70px;
 }
-.text-container p {
+.text-container p.sub-title {
   font-size: 1rem; /* Dostosuj rozmiar czcionki, jeśli potrzebne */
   margin: 10px 0;
+  position: relative; /* Ustawienie pozycji, aby pseudo-element mógł być odpowiednio pozycjonowany */
+  padding-left: 40px;
+}
+.text-container p.sub-title::before {
+  content: ""; /* Pusty element, który będzie linią */
+  position: absolute;
+  left: 0; /* Ustawienie linii na początku paragrafu */
+  top: 50%; /* Środkowanie linii w pionie */
+  transform: translateY(-50%); /* Dokładne wyrównanie linii do środka tekstu */
+  width: 30px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: var(--secondary-color);
 }
 
 .text-container h1 {
   color: var(--three-color);
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin: 10px 0;
 }
 
@@ -131,11 +194,27 @@
 
 .prev-btn,
 .next-btn {
-  background-color: var(--three-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--primary-color);
+  background: none; /* Usuń tło */
+  border: none; /* Usuń obramowanie */
+  padding: 0; /* Usuń wypełnienie */
+  cursor: pointer; /* Zmień kursor na "pointer", aby wskazać interaktywność */
+  text-decoration: none;
+  font-size: 1rem; /* Możesz dostosować rozmiar tekstu */
+  position: relative;
+}
+.prev-btn::after,
+.next-btn::after {
+  content: ""; /* Pseudo-element do stworzenia linii */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Dystans linii od tekstu, możesz dostosować */
+  height: 2px; /* Grubość linii */
+  background-color: var(--primary-color);
+  width: 100%; /* Szerokość linii na całą szerokość tekstu */
 }
 
 .dots {

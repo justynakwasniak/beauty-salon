@@ -4,12 +4,8 @@ html {
 body {
   font-family: "Nunito Sans", sans-serif;
 }
-h1,
-h2,
-h3 {
-  font-weight: 700; /* Bold */
-}
-
-p {
-  font-weight: 400; /* Normal */
+:root {
+  --primary-color: #f0e5de;
+  --secondary-color: #f4a6b0;
+  --three-color: #2d3a6f;
 }

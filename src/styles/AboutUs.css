@@ -1,9 +1,10 @@
 .about-us-container {
   padding: 50px 0;
+  margin-bottom: 100px;
 }
 
 .about-us-images img {
-  max-height: 500px; /* Ustala maksymalną wysokość obrazków */
+  max-height: 700px; /* Ustala maksymalną wysokość obrazków */
   object-fit: cover; /* Zapewnia, że obrazek wypełnia kontener bez zniekształceń */
   border-radius: 8px; /* Opcjonalnie: zaokrąglenie rogów obrazków */
 }
@@ -12,11 +13,54 @@
   display: flex;
   justify-content: space-between; /* Rozkłada obrazki na całą szerokość kontenera */
   align-items: center; /* Wyrównuje obrazki w pionie */
+  margin-bottom: 30px;
 }
 
 .image-style {
   width: 48%; /* Szerokość obrazków (możesz dostosować według potrzeb) */
-  height: 300px; /* Ustala stałą wysokość obrazków */
+  height: 450px; /* Ustala stałą wysokość obrazków */
   object-fit: cover; /* Zapewnia, że obrazek wypełnia kontener bez zniekształceń */
-  margin: 0 1%; /* Odstęp między obrazkami */
+  margin: 0 2%; /* Odstęp między obrazkami */
+}
+h2 {
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+}
+.about-us {
+  position: relative; /* Umożliwia pozycjonowanie pseudo-elementu */
+  padding-left: 40px; /* Odstęp, aby nie nachodzić na tekst */
+}
+
+.about-us::before {
+  content: ""; /* Pusty kontent dla pseudo-elementu */
+  position: absolute; /* Pozycjonowanie absolutne względem rodzica */
+  left: 0; /* Ustawienie linii na lewo od paragrafu */
+  top: 50%; /* Środkowanie linii w pionie */
+  transform: translateY(-50%); /* Środkowanie linii względem tekstu */
+  width: 30px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: #2d3a6f; /* Kolor linii */
+}
+p {
+  color: var(--three-color);
+}
+h4 {
+  color: #2d3a6f;
+  margin-bottom: 30px;
+}
+.button {
+  background-color: transparent; /* Przezroczyste tło w stanie statycznym */
+  color: var(--secondary-color); /* Kolor tekstu ustawiony na granatowy */
+  border: 2px solid var(--secondary-color); /* Granatowa obwódka */
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 50px; /* Zaokrąglone krawędzie */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.button:hover {
+  background-color: var(--three-color); /* Granatowe tło po najechaniu */
+  color: var(--primary-color);
+  border: 2px solid var(--three-color);
 }
