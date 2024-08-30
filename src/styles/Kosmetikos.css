@@ -1,14 +1,27 @@
 .kosmetikos-container {
   text-align: center;
   padding: 50px 0;
-  background-color: #f7f7f7; /* Tło sekcji */
+  background-color: var(--primary-color); /* Tło sekcji */
   margin-bottom: 100px;
 }
 
-.kosmetikos-container h1 {
-  font-size: 2rem;
-  color: #333;
+.kosmetikos-container p {
+  text-align: left; /* Wyrównanie tekstu do lewej */
+  position: relative; /* Ustawienie pozycji względem elementu */
+  padding-left: 60px; /* Odstęp tekstu od linii */
+  color: var(--three-color);
   margin-bottom: 30px;
+  margin-left: 30px;
+}
+.kosmetikos-container p::before {
+  content: ""; /* Pusty element do wyświetlenia linii */
+  position: absolute;
+  top: 50%; /* Ustawienie linii na środku wysokości tekstu */
+  left: 0;
+  transform: translateY(-50%); /* Wyrównanie linii w pionie do środka */
+  width: 50px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: var(--three-color);
 }
 
 .images-grid {
@@ -21,5 +34,7 @@
 .image-box {
   width: 300px;
   height: 400px;
-  background-color: #ccc; /* Placeholder koloru tła dla obrazków */
+  background-color: var(
+    --primary-color
+  ); /* Placeholder koloru tła dla obrazków */
 }

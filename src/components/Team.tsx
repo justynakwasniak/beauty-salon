@@ -7,9 +7,11 @@ const Team: React.FC = () => {
   return (
     <section className="team-container">
       {/* Nagłówek */}
-      <div className="team-header">
-        <h1>DLA TYCH, KTÓRZY LUBIĄ SPĘDZAĆ CZAS W MIŁEJ ATMOSFERZE</h1>
-        <p>Nasze kosmetyczki</p>
+      <div>
+        <p className="p-team">
+          DLA TYCH, KTÓRZY LUBIĄ SPĘDZAĆ CZAS W MIŁEJ ATMOSFERZE
+        </p>
+        <h2 className="h2-team">Nasze kosmetyczki</h2>
       </div>
 
       {/* Sekcja zespołu */}
@@ -17,7 +19,7 @@ const Team: React.FC = () => {
         <div className="team-member">
           <img src={kosmetyczka1} alt="Kosmetyczka 1" />
           <h2>Anna Kowalska</h2>
-          <p>Kosmetyczka</p>
+          <p className="p-cosmetology">Kosmetyczka</p>
           <div className="team-socials">
             <a
               href="https://www.instagram.com/"

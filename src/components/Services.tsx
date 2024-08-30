@@ -24,7 +24,7 @@ const Services: React.FC = () => {
           <p className="p-services">
             Spędź czas w towarzystwie najlepszych profesjonalistów{" "}
           </p>
-          <h1>Usługi i Cennik</h1>
+          <h2>Usługi i Cennik</h2>
         </div>
         <div className="container">
           <div className="row">

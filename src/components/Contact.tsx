@@ -11,29 +11,24 @@ const Contact: React.FC = () => {
   return (
     <section className="contact-container">
       <div className="contact-left">
-        <h1>Rezerwacja Online</h1>
+        <h2>Rezerwacja Online</h2>
         <Form>
-          <Form.Group controlId="formName">
-            <Form.Label>Imię</Form.Label>
-            <Form.Control type="text" placeholder="Wpisz swoje imię" />
-          </Form.Group>
+          <div className="form-row">
+            <Form.Group controlId="formName">
+              <Form.Control type="text" placeholder="Imię" />
+            </Form.Group>
 
-          <Form.Group controlId="formPhone">
-            <Form.Label>Telefon</Form.Label>
-            <Form.Control type="tel" placeholder="Wpisz swój numer telefonu" />
-          </Form.Group>
+            <Form.Group controlId="formPhone">
+              <Form.Control type="tel" placeholder="Telefon" />
+            </Form.Group>
+          </div>
 
           <Form.Group controlId="formMessage">
-            <Form.Label>Wiadomość</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Wpisz swoją wiadomość"
-            />
+            <Form.Control as="textarea" rows={3} placeholder="Wiadomość" />
           </Form.Group>
 
-          <Button variant="primary" onClick={handleShowModal}>
-            Wyślij
+          <Button className="button" onClick={handleShowModal}>
+            WYŚLIJ
           </Button>
         </Form>
       </div>

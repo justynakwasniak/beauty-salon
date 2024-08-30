@@ -2,14 +2,13 @@
   display: flex;
   justify-content: space-between;
   padding: 50px;
-  background-color: #f7f7f7;
 }
 
 .contact-left,
 .contact-right {
   flex: 1;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--primary-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -17,22 +16,66 @@
 .contact-left {
   margin-right: 20px; /* Odstęp między kolumnami */
 }
+.contact-left .form-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.contact-left .form-group {
+  flex: 1;
+  margin-right: 10px; /* Odstęp między polami */
+  position: relative; /* Umożliwia pozycjonowanie pseudoelementów */
+  margin-bottom: 20px;
+}
+.contact-left .form-group::after {
+  content: ""; /* Pusty element do wyświetlenia linii */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Szerokość linii */
+  height: 1px; /* Grubość linii */
+  background-color: var(--three-color);
+  transform: translateY(4px); /* Odstęp między linią a tekstem */
+  z-index: 1;
+}
+
+.contact-left .form-group:last-child {
+  margin-right: 0; /* Usuwa odstęp po ostatnim polu */
+}
+
+.contact-left .form-control {
+  background-color: var(--primary-color); /* Kolor tła pola tekstowego */
+  color: var(--text-color); /* Kolor tekstu w polu tekstowym */
+  border: none; /* Usunięcie standardowego obramowania */
+  border-bottom: 1px solid var(--border-color); /* Dodanie linii pod polem */
+  padding: 10px; /* Padding w polach tekstowych */
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+.contact-left .form-control:focus {
+  outline: none; /* Usunięcie domyślnej obramowania fokusu */
+  box-shadow: none; /* Usunięcie domyślnego cienia fokusu */
+}
+
+.contact-left .btn {
+  margin-top: 20px;
+}
 
 .contact-right {
   margin-left: 20px; /* Odstęp między kolumnami */
 }
 
-.contact-left h1,
+.contact-left h2,
 .contact-right h2 {
   font-size: 2rem;
-  color: #333;
+  color: var(--three-color);
   margin-bottom: 20px;
 }
 
 .contact-left p,
 .contact-right p {
   font-size: 1rem;
-  color: #666;
+  color: var(--three-color);
 }
 
 .contact-left .form-control {

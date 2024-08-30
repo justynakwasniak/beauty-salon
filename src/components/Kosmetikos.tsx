@@ -9,7 +9,7 @@ import beauty4 from "../assets/beauty4.jpg";
 const Kosmetikos: React.FC = () => {
   return (
     <section className="kosmetikos-container">
-      <h1>Kosmetikos po grecku to sztuka upiększania</h1>
+      <p>KOSMETIKOS PO GRECKU TO SZTUKA UPIĘKSZANIA </p>
       <div className="images-grid">
         <img src={beauty1} alt="Beauty 1" className="image-box" />
         <img src={beauty2} alt="Beauty 2" className="image-box" />

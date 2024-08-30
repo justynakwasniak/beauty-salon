@@ -2,25 +2,34 @@
 .team-container {
   text-align: center;
   padding: 50px;
-  background-color: #f9f9f9;
 
   border-radius: 10px;
   margin-bottom: 100px;
 }
 
 /* Nagłówek sekcji */
-.team-header h1 {
+.h2-team {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--secondary-color);
 }
 
-.team-header p {
-  font-size: 1.5rem;
-  color: #666;
-  margin-bottom: 40px;
+.p-team {
+  text-align: left; /* Wyrównanie tekstu do lewej */
+  position: relative; /* Ustawienie pozycji względem elementu */
+  padding-left: 60px; /* Odstęp tekstu od linii */
+  color: var(--three-color);
 }
-
+.p-team::before {
+  content: ""; /* Pusty element do wyświetlenia linii */
+  position: absolute;
+  top: 50%; /* Ustawienie linii na środku wysokości tekstu */
+  left: 0;
+  transform: translateY(-50%); /* Wyrównanie linii w pionie do środka */
+  width: 50px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: var(--three-color);
+}
 /* Stylizacja dla zespołu */
 .team-members {
   display: flex;
@@ -45,12 +54,12 @@
 .team-member h2 {
   font-size: 1.5rem;
   margin-bottom: 5px;
-  color: #333;
+  color: var(--three-color);
 }
 
 .team-member p {
   font-size: 1.2rem;
-  color: #777;
+  color: var(--secondary-color);
   margin-bottom: 20px;
 }
 
@@ -62,5 +71,8 @@
 }
 
 .team-socials a:hover {
-  color: #ff6347; /* Kolor zmienia się po najechaniu */
+  color: var(--secondary-color); /* Kolor zmienia się po najechaniu */
+}
+.p-cosmetology {
+  color: var(--secondary-color);
 }

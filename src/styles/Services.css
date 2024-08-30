@@ -36,7 +36,7 @@
   padding: 20px;
 }
 
-.services-header h1 {
+.services-header h2 {
   font-size: 3rem; /* Rozmiar nagłówka */
   color: var(--secondary-color);
   margin: 0;
@@ -49,14 +49,6 @@
 
 .services-list {
   padding: 20px;
-}
-
-.services-list h2 {
-  font-size: 1.5rem; /* Rozmiar nagłówka dla sekcji usług */
-  margin-bottom: 20px;
-  text-align: left; /* Wyśrodkowanie nagłówków sekcji */
-  color: var(--secondary-color);
-  font-weight: bold;
 }
 
 .services-list ul {
