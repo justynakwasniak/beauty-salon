@@ -6,10 +6,10 @@ const CompanyAd: React.FC = () => {
     <section className="company-ad-container">
       {/* Lewa strona z tekstem */}
       <div className="company-ad-text">
-        <h1>TRADYCYJNA SZKOŁA</h1>
-        <p>
-          <strong>Dlaczego warto przyjść właśnie do nas?</strong>
-        </p>
+        <p className="p-companyad">TRADYCYJNA SZKOŁA</p>
+
+        <h1>Dlaczego warto przyjść właśnie do nas?</h1>
+
         <p>
           Dostajemy same pozytywne opinie od klientów. Najlepiej przekonać się
           samemu.
@@ -19,19 +19,27 @@ const CompanyAd: React.FC = () => {
       {/* Prawa strona z kwadratami */}
       <div className="company-ad-info">
         <div className="info-box">
-          <h2>600+</h2>
+          <h2>
+            600<sup>+</sup>
+          </h2>
           <p>Zadowolonych klientów dziennie</p>
         </div>
         <div className="info-box">
-          <h2>50+</h2>
+          <h2>
+            50<sup>+</sup>
+          </h2>
           <p>Nagród za usługi</p>
         </div>
         <div className="info-box">
-          <h2>20+</h2>
+          <h2>
+            20<sup>+</sup>
+          </h2>
           <p>Najlepszych barberów</p>
         </div>
         <div className="info-box">
-          <h2>100+</h2>
+          <h2>
+            100<sup>+</sup>
+          </h2>
           <p>Prezentów dla stałych klientów</p>
         </div>
       </div>

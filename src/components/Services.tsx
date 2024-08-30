@@ -21,6 +21,9 @@ const Services: React.FC = () => {
 
       <div className="services-content">
         <div className="services-header">
+          <p className="p-services">
+            Spędź czas w towarzystwie najlepszych profesjonalistów{" "}
+          </p>
           <h1>Usługi i Cennik</h1>
         </div>
         <div className="container">
@@ -28,7 +31,6 @@ const Services: React.FC = () => {
             {/* Sekcja po lewej stronie */}
             <div className="col-md-6">
               <div className="services-list">
-                <h2>Usługi Po Lewej</h2>
                 <ul>
                   {servicesList.map((service, index) => (
                     <li key={index}>
@@ -42,7 +44,6 @@ const Services: React.FC = () => {
             {/* Sekcja po prawej stronie */}
             <div className="col-md-6">
               <div className="services-list">
-                <h2>Usługi Po Prawej</h2>
                 <ul>
                   {servicesList.map((service, index) => (
                     <li key={index}>
@@ -56,7 +57,7 @@ const Services: React.FC = () => {
 
           {/* Przycisk rezerwacji online */}
           <div className="text-center mt-4">
-            <Button variant="primary" onClick={handleShowModal}>
+            <Button className="button" onClick={handleShowModal}>
               Rezerwacja Online
             </Button>
           </div>
@@ -94,10 +95,10 @@ const Services: React.FC = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button className="button" onClick={handleCloseModal}>
             Zamknij
           </Button>
-          <Button variant="primary">Wyślij</Button>
+          <Button className="button">Wyślij</Button>
         </Modal.Footer>
       </Modal>
     </section>
