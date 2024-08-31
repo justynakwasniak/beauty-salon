@@ -24,12 +24,15 @@ h1 {
   gap: 20px;
 }
 
-.nav-item a {
+.nav-item {
   text-decoration: none;
   color: var(--three-color);
   font-weight: bold;
+  z-index: 1; /* Upewnia się, że linki są na górze */
+  position: relative;
+  cursor: pointer;
 }
-.nav-item a:hover {
+.nav-item:hover {
   color: var(--secondary-color);
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -167,6 +170,7 @@ h1 {
 
 .right-section {
   width: 60%;
+  z-index: 0;
 }
 
 .slider {

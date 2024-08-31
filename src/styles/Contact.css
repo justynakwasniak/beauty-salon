@@ -45,16 +45,37 @@
 
 .contact-left .form-control {
   background-color: var(--primary-color); /* Kolor tła pola tekstowego */
-  color: var(--text-color); /* Kolor tekstu w polu tekstowym */
+  color: var(--three-color); /* Kolor tekstu w polu tekstowym */
   border: none; /* Usunięcie standardowego obramowania */
-  border-bottom: 1px solid var(--border-color); /* Dodanie linii pod polem */
+  border-bottom: 1px solid var(--three-color); /* Dodanie linii pod polem */
   padding: 10px; /* Padding w polach tekstowych */
-  border-radius: 4px;
+  border-radius: 1px;
   margin-bottom: 15px;
+}
+.contact-left .form-control:hover {
+  border-bottom-color: var(
+    --secondary-color
+  ); /* Zmiana koloru linii pod polem */
+  color: var(--secondary-color); /* Zmiana koloru tekstu */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animacja */
+}
+.contact-left .form-control:hover::placeholder {
+  color: var(--secondary-color); /* Kolor placeholdera po najechaniu */
+}
+
+.contact-left .form-control:focus::placeholder {
+  color: var(--secondary-color); /* Kolor placeholdera podczas focus */
 }
 .contact-left .form-control:focus {
   outline: none; /* Usunięcie domyślnej obramowania fokusu */
   box-shadow: none; /* Usunięcie domyślnego cienia fokusu */
+
+  border-bottom-color: var(
+    --secondary-color
+  ); /* Zmiana koloru linii pod polem */
+  color: var(--secondary-color); /* Zmiana koloru tekstu */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animacja */
+  outline: none; /* Usunięcie domyślnego niebieskiego obramowania */
 }
 
 .contact-left .btn {
@@ -84,4 +105,54 @@
 
 .contact-left .btn {
   margin-top: 20px;
+}
+.contact-right .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-right .contact-item i {
+  margin-right: 10px;
+  color: var(--three-color); /* Kolor ikony */
+  font-size: 1.2rem; /* Rozmiar ikony */
+}
+.contact-right .contact-item i:hover {
+  margin-right: 10px;
+  color: var(--secondary-color); /* Kolor ikony */
+  font-size: 1.2rem; /* Rozmiar ikony */
+
+  cursor: pointer;
+}
+
+.contact-right .contact-item span {
+  color: var(--text-color); /* Kolor tekstu */
+}
+.contact-right .contact-item a {
+  text-decoration: none;
+  color: var(--three-color); /* Kolor linków */
+}
+
+.contact-right .contact-item a:hover {
+  color: var(--secondary-color); /* Kolor linków po najechaniu */
+}
+.p-hours {
+  text-align: left; /* Wyrównanie tekstu do lewej */
+  position: relative; /* Ustawienie pozycji względem elementu */
+  padding-left: 60px; /* Odstęp tekstu od linii */
+  color: var(--three-color);
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.p-hours::before {
+  content: ""; /* Pusty element do wyświetlenia linii */
+  position: absolute;
+  top: 50%; /* Ustawienie linii na środku wysokości tekstu */
+  left: 0;
+  transform: translateY(-50%); /* Wyrównanie linii w pionie do środka */
+  width: 50px; /* Długość linii */
+  height: 1px; /* Grubość linii */
+  background-color: var(--three-color);
 }

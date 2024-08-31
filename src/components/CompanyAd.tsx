@@ -6,7 +6,7 @@ const CompanyAd: React.FC = () => {
     <section className="company-ad-container">
       {/* Lewa strona z tekstem */}
       <div className="company-ad-text">
-        <p className="p-companyad">TRADYCYJNA SZKOŁA</p>
+        <p className="p-companyad">PROFESJONALNA SZKOŁA</p>
 
         <h1>Dlaczego warto przyjść właśnie do nas?</h1>
 
@@ -34,7 +34,7 @@ const CompanyAd: React.FC = () => {
           <h2>
             20<sup>+</sup>
           </h2>
-          <p>Najlepszych barberów</p>
+          <p>Najlepszych specjalistów</p>
         </div>
         <div className="info-box">
           <h2>

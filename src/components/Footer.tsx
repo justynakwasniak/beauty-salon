@@ -8,10 +8,18 @@ const Footer: React.FC = () => {
         <p>Copyright © 2024</p>
       </div>
       <div className="footer-right">
-        <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="fab fa-instagram"></i>
         </a>
-        <a href="https://www.youtube.com/yourchannel" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="fab fa-youtube"></i>
         </a>
       </div>

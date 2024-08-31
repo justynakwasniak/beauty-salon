@@ -1,4 +1,5 @@
 import React from "react";
+
 import Header from "./components/Header";
 import Services from "./components/Services";
 import Team from "./components/Team";
@@ -12,12 +13,25 @@ const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <AboutUs />
-      <Services />
-      <CompanyAd />
-      <Team />
-      <Kosmetikos />
-      <Contact />
+      {/* Dodajemy identyfikatory sekcji */}
+      <section id="about">
+        <AboutUs />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="company-ad">
+        <CompanyAd />
+      </section>
+      <section id="team">
+        <Team />
+      </section>
+      <section id="kosmetikos">
+        <Kosmetikos />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Footer />
     </div>
   );

@@ -36,8 +36,8 @@ const AboutUs: React.FC = () => {
             <p className="about-us">O nas</p>
             <h2>Najlepszy salon w Twoim mieście</h2>
             <h4>
-              Jeśli chcesz do Twojego wizerunki dodać więcej pewności siebie- to
-              dobrze trafiłeś.
+              Jeśli chcesz do Twojego wizerunki dodać więcej pewności siebie -
+              to dobrze trafiłaś.
             </h4>
             <p>
               Jesteśmy profesjonalnym salonem urody, który od lat dba o piękno
@@ -46,7 +46,7 @@ const AboutUs: React.FC = () => {
               Zarezerwuj wizytę już dziś i pozwól nam zadbać o Ciebie.
             </p>
             <Button className="button" onClick={handleShowModal}>
-              Rezerwacja Online
+              REZERWACJA ONLINE
             </Button>
           </div>
         </div>
@@ -55,17 +55,17 @@ const AboutUs: React.FC = () => {
       {/* Modal z formularzem */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Zostaw swoje dane</Modal.Title>
+          <Modal.Title>Zostaw swoje dane, oddzwonimy</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Imię</Form.Label>
+              <Form.Label>Imię *</Form.Label>
               <Form.Control type="text" placeholder="Wpisz swoje imię" />
             </Form.Group>
 
             <Form.Group controlId="formPhone">
-              <Form.Label>Telefon</Form.Label>
+              <Form.Label>Telefon *</Form.Label>
               <Form.Control
                 type="tel"
                 placeholder="Wpisz swój numer telefonu"
@@ -84,9 +84,9 @@ const AboutUs: React.FC = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button className="button" onClick={handleCloseModal}>
-            Zamknij
+            ZAMKNIJ
           </Button>
-          <Button className="button">Wyślij</Button>
+          <Button className="button">WYŚLIJ</Button>
         </Modal.Footer>
       </Modal>
     </section>
