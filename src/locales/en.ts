@@ -1,0 +1,32 @@
+const enTranslation = {
+  companyAd: {
+    title: "Why is it worth coming to us?",
+    positiveFeedback: "We get only positive feedback from our clients. The best way is to see for yourself.",
+    clients: "Satisfied clients daily",
+    awards: "Awards for services",
+    specialists: "Top specialists",
+    gifts: "Gifts for loyal clients",
+    home: "Home",
+    about: "About Us",
+    services: "Services & Pricing",
+    team: "Team",
+    contact: "Contact",
+    phone: "Tel: +48 123 456 789",
+    reserve: "BOOK ONLINE",
+    insta: "Instagram",
+    youtube: "YouTube",
+    subtitle: "Beauty Salon for Women in Kraków",
+    heading: "BeautySalon",
+    slogan: "We are experts in women's beauty. Working carefully and with taste.",
+    modalTitle: "Leave your details, we will call you back",
+    name: "Name",
+    phonePlaceholder: "Phone*",
+    message: "Message",
+    close: "CLOSE",
+    send: "SEND",
+    prev: "Previous",
+    next: "Next",
+  },
+};
+
+export default enTranslation;

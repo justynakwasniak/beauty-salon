@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Header.css";
 import { Modal, Button, Form } from "react-bootstrap"; // Importuj komponenty z react-bootstrap
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // Import images for the slider
 import bs1 from "../assets/bs1.webp";
@@ -73,6 +74,7 @@ const Header: React.FC = () => {
             <a onClick={() => handleScrollToSection("contact")}>Kontakt</a>
           </li>
         </ul>
+        <LanguageSwitcher />
         <div className="nav-right">
           <a className="phone-number">Tel: +48 123 456 789</a>
           <button className="reserve-btn" onClick={handleShowModal}>
