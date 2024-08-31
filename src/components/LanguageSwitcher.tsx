@@ -11,8 +11,8 @@ const LanguageSwitcher: React.FC = () => {
 
   return (
     <div className="language-switcher">
-      <button onClick={() => handleLanguageChange("en")}>English</button>
-      <button onClick={() => handleLanguageChange("pl")}>Polski</button>
+      <button onClick={() => handleLanguageChange("en")}>EN</button>
+      <button onClick={() => handleLanguageChange("pl")}>PL</button>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import { useTranslation } from "react-i18next"; // Importujemy hook do tłumaczeń
 import "../styles/Contact.css"; // Import pliku CSS
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation(); // Używamy hooka do tłumaczeń
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => setShowModal(true);
@@ -11,30 +13,40 @@ const Contact: React.FC = () => {
   return (
     <section className="contact-container">
       <div className="contact-left">
-        <h2>Rezerwacja Online</h2>
+        <h2>{t("contact.onlineReservation")}</h2>
         <Form>
           <div className="form-row">
             <Form.Group controlId="formName">
-              <Form.Control type="text" placeholder="Imię *" />
+              <Form.Control
+                type="text"
+                placeholder={t("contact.namePlaceholder")}
+              />
             </Form.Group>
 
             <Form.Group controlId="formPhone">
-              <Form.Control type="tel" placeholder="Telefon *" />
+              <Form.Control
+                type="tel"
+                placeholder={t("contact.phonePlaceholder")}
+              />
             </Form.Group>
           </div>
 
           <Form.Group controlId="formMessage">
-            <Form.Control as="textarea" rows={3} placeholder="Wiadomość" />
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder={t("contact.messagePlaceholder")}
+            />
           </Form.Group>
 
           <Button className="button" onClick={handleShowModal}>
-            WYŚLIJ
+            {t("contact.sendButton")}
           </Button>
         </Form>
       </div>
 
       <div className="contact-right">
-        <h2>Kontakt</h2>
+        <h2>{t("contact.contactTitle")}</h2>
 
         {/* Adres */}
         <div className="contact-item">
@@ -44,36 +56,36 @@ const Contact: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Rynek Główny 1, Kraków
+            {t("contact.address")}
           </a>
         </div>
 
         {/* Telefon */}
         <div className="contact-item">
           <i className="fas fa-phone"></i>
-          <a href="tel:+48123456789">+48 123 456 789</a>
+          <a href="tel:+48123456789">{t("contact.phone")}</a>
         </div>
 
         {/* Email */}
         <div className="contact-item">
           <i className="fas fa-envelope"></i>
-          <a href="mailto:kontakt@twojadomena.pl">beautysalon@gmail.com</a>
+          <a href="mailto:kontakt@twojadomena.pl">{t("contact.email")}</a>
         </div>
 
         {/* Godziny otwarcia */}
         <p className="p-hours">
-          GODZINY OTWARCIA <br />
+          {t("contact.openingHours")} <br />
         </p>
-        <p className="p-hours2">Pon - Pt: 9:00 - 18:00</p>
+        <p className="p-hours2">{t("contact.hoursDetail")}</p>
       </div>
 
       {/* Modal dla formularza */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Potwierdzenie</Modal.Title>
+          <Modal.Title>{t("contact.confirmationTitle")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Twoja wiadomość została wysłana!</p>
+          <p>{t("contact.confirmationMessage")}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -81,7 +93,7 @@ const Contact: React.FC = () => {
             variant="secondary"
             onClick={handleCloseModal}
           >
-            Zamknij
+            {t("contact.closeButton")}
           </Button>
         </Modal.Footer>
       </Modal>

@@ -9,7 +9,7 @@ const CompanyAd: React.FC = () => {
     <section className="company-ad-container">
       {/* Lewa strona z tekstem */}
       <div className="company-ad-text">
-        <p className="p-companyad">PROFESJONALNA SZKOŁA</p>
+        <p className="p-companyad">{t("companyAd.school")}</p>
 
         <h1>{t("companyAd.title")}</h1>
 

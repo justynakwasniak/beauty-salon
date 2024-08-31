@@ -4,13 +4,15 @@
 }
 
 .language-switcher button {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
+  background-color: var(--three-color);
+  border: 1px solid var(--primary-color);
+  padding: 3px 8px; /* Zmniejszono padding */
+  font-size: 0.7rem; /* Zmniejszono rozmiar czcionki */
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 15px; /* Zmniejszono border-radius */
+  color: var(--primary-color);
 }
 
 .language-switcher button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--secondary-color);
 }

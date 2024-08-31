@@ -3,23 +3,25 @@ import "../styles/Team.css"; // Import stylów CSS
 import kosmetyczka1 from "../assets/kosmetyczka1.jpg";
 import kosmetyczka2 from "../assets/kosmetyczka2.jpg";
 import kosmetyczka3 from "../assets/kosmetyczka3.jpg";
+import { useTranslation } from "react-i18next"; // Hook do tłumaczeń
+
 const Team: React.FC = () => {
+  const { t } = useTranslation(); // Hook do tłumaczeń
+
   return (
     <section className="team-container">
       {/* Nagłówek */}
       <div>
-        <p className="p-team">
-          DLA TYCH, KTÓRZY LUBIĄ SPĘDZAĆ CZAS W MIŁEJ ATMOSFERZE
-        </p>
-        <h2 className="h2-team">Nasz zespół</h2>
+        <p className="p-team">{t("team.spendingTimeInPleasantAtmosphere")}</p>
+        <h2 className="h2-team">{t("team.ourTeam")}</h2>
       </div>
 
       {/* Sekcja zespołu */}
       <div className="team-members">
         <div className="team-member">
-          <img src={kosmetyczka1} alt="Kosmetyczka 1" />
-          <h2>Anna Kowalska</h2>
-          <p className="p-cosmetology">Kosmetolog</p>
+          <img src={kosmetyczka1} alt={t("team.member1.alt")} />
+          <h2>{t("team.member1.name")}</h2>
+          <p className="p-cosmetology">{t("team.member1.role")}</p>
           <div className="team-socials">
             <a
               href="https://www.instagram.com/"
@@ -46,9 +48,9 @@ const Team: React.FC = () => {
         </div>
 
         <div className="team-member">
-          <img src={kosmetyczka2} alt="Kosmetyczka 2" />
-          <h2>Monika Nowak</h2>
-          <p>Kosmetolog</p>
+          <img src={kosmetyczka2} alt={t("team.member2.alt")} />
+          <h2>{t("team.member2.name")}</h2>
+          <p>{t("team.member2.role")}</p>
           <div className="team-socials">
             <a
               href="https://www.instagram.com/"
@@ -75,9 +77,9 @@ const Team: React.FC = () => {
         </div>
 
         <div className="team-member">
-          <img src={kosmetyczka3} alt="Kosmetyczka 3" />
-          <h2>Katarzyna Wiśniewska</h2>
-          <p>Kosmetolog</p>
+          <img src={kosmetyczka3} alt={t("team.member3.alt")} />
+          <h2>{t("team.member3.name")}</h2>
+          <p>{t("team.member3.role")}</p>
           <div className="team-socials">
             <a
               href="https://www.instagram.com/"

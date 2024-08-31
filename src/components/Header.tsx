@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Header.css";
-import { Modal, Button, Form } from "react-bootstrap"; // Importuj komponenty z react-bootstrap
+import { Modal, Button, Form } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 // Import images for the slider
@@ -13,7 +14,8 @@ const images = [bs1, bs2, bs3];
 
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showModal, setShowModal] = useState(false); // Stan do zarządzania widocznością modala
+  const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation(); // Hook do tłumaczenia
 
   // Slider autoplay functionality
   useEffect(() => {
@@ -21,7 +23,7 @@ const Header: React.FC = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -57,29 +59,38 @@ const Header: React.FC = () => {
       <nav className="navbar d-flex justify-content-between">
         <ul className="nav">
           <li className="nav-item">
-            <a onClick={() => handleScrollToSection("home")}>Home</a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("about")}>O nas</a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("services")}>
-              Usługi i cennik
+            <a onClick={() => handleScrollToSection("home")}>
+              {t("header.home")}
             </a>
           </li>
           <li className="nav-item">
-            <a onClick={() => handleScrollToSection("team")}>Zespół</a>
+            <a onClick={() => handleScrollToSection("about")}>
+              {t("header.about")}
+            </a>
           </li>
           <li className="nav-item">
-            <a onClick={() => handleScrollToSection("contact")}>Kontakt</a>
+            <a onClick={() => handleScrollToSection("services")}>
+              {t("header.services")}
+            </a>
+          </li>
+          <li className="nav-item">
+            <a onClick={() => handleScrollToSection("team")}>
+              {t("header.team")}
+            </a>
+          </li>
+          <li className="nav-item">
+            <a onClick={() => handleScrollToSection("contact")}>
+              {t("header.contact")}
+            </a>
           </li>
         </ul>
-        <LanguageSwitcher />
+
         <div className="nav-right">
           <a className="phone-number">Tel: +48 123 456 789</a>
           <button className="reserve-btn" onClick={handleShowModal}>
-            REZERWACJA ONLINE
+            {t("header.reserve")}
           </button>
+          <LanguageSwitcher />
         </div>
       </nav>
 
@@ -94,7 +105,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="social-link instagram"
             >
-              Instagram
+              {t("header.insta")}
             </a>
             <a
               href="https://www.youtube.com"
@@ -102,16 +113,13 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="social-link youtube"
             >
-              YouTube
+              {t("header.youtube")}
             </a>
           </div>
           <div className="text-container">
-            <p className="sub-title">Beauty Salon dla kobiet w Krakowie</p>
-            <h1>BeautySalon</h1>
-            <p className="slogan">
-              Jesteśmy ekspertami od kobiecej urody. <br />
-              Pracujemy uważnie i z poczuciem gustu.
-            </p>
+            <p className="sub-title">{t("header.subtitle")}</p>
+            <h1>{t("header.heading")}</h1>
+            <p className="slogan">{t("header.slogan")}</p>
           </div>
         </div>
 
@@ -126,7 +134,7 @@ const Header: React.FC = () => {
             ></div>
             <div className="slider-nav">
               <button className="prev-btn" onClick={handlePrevClick}>
-                Poprzednie
+                {t("header.prev")}
               </button>
               <div className="dots">
                 {images.map((_, index) => (
@@ -139,7 +147,7 @@ const Header: React.FC = () => {
                 ))}
               </div>
               <button className="next-btn" onClick={handleNextClick}>
-                Następne
+                {t("header.next")}
               </button>
             </div>
           </div>
@@ -149,31 +157,38 @@ const Header: React.FC = () => {
       {/* Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Zostaw swoje dane, oddzwonimy</Modal.Title>
+          <Modal.Title>{t("header.modalTitle")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Imię</Form.Label>
-              <Form.Control type="text" placeholder="Imię*" />
+              <Form.Label>{t("header.name")}</Form.Label>
+              <Form.Control type="text" placeholder={t("header.name") + "*"} />
             </Form.Group>
 
             <Form.Group controlId="formPhone">
-              <Form.Label>Telefon</Form.Label>
-              <Form.Control type="tel" placeholder="Telefon*" />
+              <Form.Label>{t("header.phone")}</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder={t("header.phonePlaceholder")}
+              />
             </Form.Group>
 
             <Form.Group controlId="formMessage">
-              <Form.Label>Wiadomość</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Wiadomość" />
+              <Form.Label>{t("header.message")}</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder={t("header.message")}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button className="button" onClick={handleCloseModal}>
-            ZAMKNIJ
+            {t("header.close")}
           </Button>
-          <Button className="button">WYŚLIJ</Button>
+          <Button className="button">{t("header.send")}</Button>
         </Modal.Footer>
       </Modal>
     </header>

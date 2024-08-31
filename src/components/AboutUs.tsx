@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import "../styles/AboutUs.css";
 
 import aboutus1 from "../assets/aboutus1.jpg";
 import aboutus2 from "../assets/aboutus2.jpg";
 
 const AboutUs: React.FC = () => {
+  const { t } = useTranslation(); // Użycie hooka do tłumaczeń
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => setShowModal(true);
@@ -20,12 +22,12 @@ const AboutUs: React.FC = () => {
             <div className="about-us-images">
               <img
                 src={aboutus1}
-                alt="Image 1"
+                alt={t('aboutUs.imageAlt1')}
                 className="img-fluid image-style"
               />
               <img
                 src={aboutus2}
-                alt="Image 2"
+                alt={t('aboutUs.imageAlt2')}
                 className="img-fluid image-style"
               />
             </div>
@@ -33,20 +35,12 @@ const AboutUs: React.FC = () => {
 
           {/* Prawa strona z tekstem i przyciskiem */}
           <div className="col-md-6 ">
-            <p className="about-us">O nas</p>
-            <h2>Najlepszy salon w Twoim mieście</h2>
-            <h4>
-              Jeśli chcesz do Twojego wizerunki dodać więcej pewności siebie -
-              to dobrze trafiłaś.
-            </h4>
-            <p>
-              Jesteśmy profesjonalnym salonem urody, który od lat dba o piękno
-              naszych klientów. Nasz zespół składa się z doświadczonych
-              specjalistów, którzy z pasją podchodzą do każdej metamorfozy.
-              Zarezerwuj wizytę już dziś i pozwól nam zadbać o Ciebie.
-            </p>
+            <p className="about-us">{t('aboutUs.title')}</p>
+            <h2>{t('aboutUs.heading')}</h2>
+            <h4>{t('aboutUs.subheading')}</h4>
+            <p>{t('aboutUs.description')}</p>
             <Button className="button" onClick={handleShowModal}>
-              REZERWACJA ONLINE
+              {t('aboutUs.bookOnline')}
             </Button>
           </div>
         </div>
@@ -55,38 +49,38 @@ const AboutUs: React.FC = () => {
       {/* Modal z formularzem */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Zostaw swoje dane, oddzwonimy</Modal.Title>
+          <Modal.Title>{t('aboutUs.modalTitle')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Imię *</Form.Label>
-              <Form.Control type="text" placeholder="Wpisz swoje imię" />
+              <Form.Label>{t('aboutUs.formName')}</Form.Label>
+              <Form.Control type="text" placeholder={t('aboutUs.formNamePlaceholder')} />
             </Form.Group>
 
             <Form.Group controlId="formPhone">
-              <Form.Label>Telefon *</Form.Label>
+              <Form.Label>{t('aboutUs.formPhone')}</Form.Label>
               <Form.Control
                 type="tel"
-                placeholder="Wpisz swój numer telefonu"
+                placeholder={t('aboutUs.formPhonePlaceholder')}
               />
             </Form.Group>
 
             <Form.Group controlId="formMessage">
-              <Form.Label>Wiadomość</Form.Label>
+              <Form.Label>{t('aboutUs.formMessage')}</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Wpisz swoją wiadomość"
+                placeholder={t('aboutUs.formMessagePlaceholder')}
               />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button className="button" onClick={handleCloseModal}>
-            ZAMKNIJ
+            {t('aboutUs.close')}
           </Button>
-          <Button className="button">WYŚLIJ</Button>
+          <Button className="button">{t('aboutUs.send')}</Button>
         </Modal.Footer>
       </Modal>
     </section>
