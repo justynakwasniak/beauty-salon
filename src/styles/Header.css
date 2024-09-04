@@ -201,6 +201,8 @@ h1 {
   color: var(--three-color);
   margin-left: -30px;
   margin-bottom: -70px;
+  z-index: 2;
+  position: relative;
 }
 .text-container p.sub-title {
   font-size: 1rem; /* Dostosuj rozmiar czcionki, jeśli potrzebne */
@@ -297,19 +299,19 @@ h1 {
 }
 @media (max-width: 992px) {
   .main-content {
-    flex-direction: row;
-    align-items: flex-start; /* Elementy będą ustawione obok siebie, ale bliżej góry */
-    padding: 15px;
+    flex-direction: column;
+    align-items: center; /* Elementy będą ustawione obok siebie, ale bliżej góry */
   }
 
   .left-section {
-    width: 45%;
-    margin-left: 0;
-    margin-bottom: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    order: 1;
   }
 
   .right-section {
-    width: 55%;
+    width: 100%;
+    order: 2;
   }
 
   .slider {
@@ -358,11 +360,9 @@ h1 {
 }
 @media (max-width: 992px) {
   .text-container {
-    max-width: 450px; /* Zmniejszamy szerokość na tabletach */
-    margin-left: 0;
-    margin-top: -50px; /* Lekko zmniejszamy margines górny */
-    margin-bottom: 20px; /* Dodajemy margines dolny */
-    padding: 0 20px; /* Dodajemy wypełnienie, aby tekst nie dotykał krawędzi */
+    margin: 0 auto 20px auto; /* Wyśrodkowanie tekstu i dodanie marginesu dolnego */
+    max-width: 100%; /* Ustawienie szerokości na 100% */
+    padding: 0 20px; /* Wewnętrzny odstęp, aby tekst nie dotykał krawędzi */
   }
 }
 
@@ -405,4 +405,13 @@ h1 {
     font-size: 1rem; /* Zmniejszamy rozmiar podtytułu */
     text-align: center; /* Środkowanie podtytułu */
   }
+}
+/* Example styles for invalid fields */
+.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control-feedback {
+  color: #dc3545;
 }

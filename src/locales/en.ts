@@ -52,6 +52,10 @@ const enTranslation = {
     send: "SEND",
     prev: "Previous",
     next: "Next",
+    phoneError: "Write phone number!",
+    nameError: "Write name!",
+    confirmation: "Confirmation",
+    message2: "Your message has been sent",
   },
   aboutUs: {
     imageAlt1: "Image 1",
@@ -72,6 +76,8 @@ const enTranslation = {
     formMessagePlaceholder: "Enter your message",
     close: "CLOSE",
     send: "SEND",
+    confirmation: "Confirmation",
+    message2: "Your message has been sent",
   },
   services: {
     spendTimeWithProfessionals: "SPEND TIME WITH THE BEST PROFESSIONALS",

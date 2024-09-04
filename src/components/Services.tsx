@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { useTranslation } from "react-i18next"; // Hook do tłumaczeń
-import "../styles/Services.css"; // Importujemy plik CSS
+import { useTranslation } from "react-i18next";
+import "../styles/Services.css";
 
 const servicesList = [
   { name: "Mikropigmentacja", price: "100 PLN" },
@@ -15,11 +15,26 @@ const servicesList = [
 ];
 
 const Services: React.FC = () => {
-  const { t } = useTranslation(); // Użycie hooka do tłumaczeń
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
+  const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
 
-  const handleShowModal = () => setShowModal(true);
+  const handleShowModal = () => {
+    setShowModal(true);
+    setMessageSent(false); // Resetuj stan wysłanej wiadomości przy otwieraniu modalu
+  };
+
   const handleCloseModal = () => setShowModal(false);
+
+  const handleSend = () => {
+    const form = document.getElementById("servicesForm") as HTMLFormElement;
+    if (form.checkValidity()) {
+      setMessageSent(true); // Ustaw stan na wysłaną wiadomość
+      form.reset(); // Opcjonalnie, resetuj formularz po wysłaniu
+    } else {
+      form.reportValidity(); // Wyświetl komunikaty o błędach walidacji
+    }
+  };
 
   return (
     <section className="services-container">
@@ -28,9 +43,9 @@ const Services: React.FC = () => {
       <div className="services-content">
         <div className="services-header">
           <p className="p-services">
-            {t('services.spendTimeWithProfessionals')}
+            {t("services.spendTimeWithProfessionals")}
           </p>
-          <h2>{t('services.servicesAndPricing')}</h2>
+          <h2>{t("services.servicesAndPricing")}</h2>
         </div>
         <div className="container">
           <div className="row">
@@ -57,7 +72,12 @@ const Services: React.FC = () => {
                     .slice(servicesList.length / 2)
                     .map((service, index) => (
                       <li key={index}>
-                        {t(`services.list.${index + servicesList.length / 2}.name`)} - {service.price}
+                        {t(
+                          `services.list.${
+                            index + servicesList.length / 2
+                          }.name`
+                        )}{" "}
+                        - {service.price}
                       </li>
                     ))}
                 </ul>
@@ -68,7 +88,7 @@ const Services: React.FC = () => {
           {/* Przycisk rezerwacji online */}
           <div className="text-center mt-4">
             <Button className="button" onClick={handleShowModal}>
-              {t('services.bookOnline')}
+              {t("services.bookOnline")}
             </Button>
           </div>
         </div>
@@ -77,31 +97,58 @@ const Services: React.FC = () => {
       {/* Modal z formularzem */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>{t('services.modalTitle')}</Modal.Title>
+          {!messageSent && (
+            <Modal.Title>{t("services.modalTitle")}</Modal.Title>
+          )}
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label>{t('services.formName')}</Form.Label>
-              <Form.Control type="text" placeholder={t('services.formNamePlaceholder')} />
-            </Form.Group>
+          {messageSent ? (
+            <div className="confirmation-message">
+              <h4>Confirmation</h4>
+              <p>Your message has been sent!</p>
+            </div>
+          ) : (
+            <Form id="servicesForm">
+              <Form.Group controlId="formName">
+                <Form.Label>{t("services.formName")}</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder={t("services.formNamePlaceholder")}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formPhone">
-              <Form.Label>{t('services.formPhone')}</Form.Label>
-              <Form.Control type="tel" placeholder={t('services.formPhonePlaceholder')} />
-            </Form.Group>
+              <Form.Group controlId="formPhone">
+                <Form.Label>{t("services.formPhone")}</Form.Label>
+                <Form.Control
+                  type="tel"
+                  placeholder={t("services.formPhonePlaceholder")}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formMessage">
-              <Form.Label>{t('services.formMessage')}</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder={t('services.formMessagePlaceholder')} />
-            </Form.Group>
-          </Form>
+              <Form.Group controlId="formMessage">
+                <Form.Label>{t("services.formMessage")}</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder={t("services.formMessagePlaceholder")}
+                />
+              </Form.Group>
+            </Form>
+          )}
         </Modal.Body>
         <Modal.Footer>
-          <Button className="button" onClick={handleCloseModal}>
-            {t('services.close')}
-          </Button>
-          <Button className="button">{t('services.send')}</Button>
+          {!messageSent && (
+            <>
+              <Button className="button" onClick={handleCloseModal}>
+                {t("services.close")}
+              </Button>
+              <Button className="button" onClick={handleSend}>
+                {t("services.send")}
+              </Button>
+            </>
+          )}
         </Modal.Footer>
       </Modal>
     </section>

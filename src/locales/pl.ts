@@ -36,7 +36,7 @@ const plTranslation = {
     services: "Usługi i cennik",
     team: "Zespół",
     contact: "Kontakt",
-    phone: "Tel: +48 123 456 789",
+
     reserve: "REZERWACJA ONLINE",
     insta: "Instagram",
     youtube: "YouTube",
@@ -52,6 +52,10 @@ const plTranslation = {
     send: "WYŚLIJ",
     prev: "Poprzednie",
     next: "Następne",
+    phoneError: "Wpisz numer telefonu!",
+    nameError: "Wpisz imię!",
+    confirmation: "Potwierdzenie",
+    message2: "Twoja wiadomość została wysłana",
   },
   aboutUs: {
     imageAlt1: "Zdjęcie 1",
@@ -72,6 +76,8 @@ const plTranslation = {
     formMessagePlaceholder: "Wpisz swoją wiadomość",
     close: "ZAMKNIJ",
     send: "WYŚLIJ",
+    confirmation: "Potwierdzenie",
+    message2: "Twoja wiadomość została wysłana",
   },
 
   services: {

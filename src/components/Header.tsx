@@ -15,6 +15,16 @@ const images = [bs1, bs2, bs3];
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+  });
   const { t } = useTranslation(); // Hook do tłumaczenia
 
   // Slider autoplay functionality
@@ -50,8 +60,35 @@ const Header: React.FC = () => {
   };
 
   // Funkcje do zarządzania modalem
-  const handleShowModal = () => setShowModal(true);
+  const handleShowModal = () => {
+    setShowModal(true);
+    setMessageSent(false); // Resetuj stan wysłanej wiadomości przy otwieraniu modalu
+  };
   const handleCloseModal = () => setShowModal(false);
+
+  // Funkcja do obsługi kliknięcia przycisku "Send"
+  const handleSend = () => {
+    // Walidacja formularza
+    const newErrors = {
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+    };
+
+    if (newErrors.name || newErrors.phone) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setMessageSent(true); // Ustaw stan na wysłaną wiadomość
+    // Możesz dodać dodatkową logikę tutaj, np. wysyłanie formularza
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <header className="header-container">
@@ -157,39 +194,66 @@ const Header: React.FC = () => {
       {/* Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title>{t("header.modalTitle")}</Modal.Title>
+          {messageSent ? null : (
+            <Modal.Title>{t("header.modalTitle")}</Modal.Title>
+          )}
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label>{t("header.name")}</Form.Label>
-              <Form.Control type="text" placeholder={t("header.name") + "*"} />
-            </Form.Group>
+          {messageSent ? (
+            <div className="confirmation-message">
+              <h4>{t("header.confirmation")}</h4>
+              <p>{t("header.message2")}</p>
+            </div>
+          ) : (
+            <Form>
+              <Form.Group controlId="formName">
+                <Form.Label>{t("header.name")}</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={t("header.name") + "*"}
+                  isInvalid={errors.name}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {t("header.nameError")}
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formPhone">
-              <Form.Label>{t("header.phone")}</Form.Label>
-              <Form.Control
-                type="tel"
-                placeholder={t("header.phonePlaceholder")}
-              />
-            </Form.Group>
+              <Form.Group controlId="formPhone">
+                <Form.Label>{t("header.phone")}</Form.Label>
+                <Form.Control
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder={t("header.phonePlaceholder")}
+                  isInvalid={errors.phone}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {t("header.phoneError")}
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group controlId="formMessage">
-              <Form.Label>{t("header.message")}</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder={t("header.message")}
-              />
-            </Form.Group>
-          </Form>
+              <Form.Group controlId="formMessage">
+                <Form.Label>{t("header.message")}</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="message"
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={t("header.message")}
+                />
+              </Form.Group>
+              <Button className="button" onClick={handleSend}>
+                {t("header.send")}
+              </Button>
+            </Form>
+          )}
         </Modal.Body>
-        <Modal.Footer>
-          <Button className="button" onClick={handleCloseModal}>
-            {t("header.close")}
-          </Button>
-          <Button className="button">{t("header.send")}</Button>
-        </Modal.Footer>
+        {!messageSent && <Modal.Footer></Modal.Footer>}
       </Modal>
     </header>
   );
