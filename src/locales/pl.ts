@@ -78,6 +78,8 @@ const plTranslation = {
     send: "WYŚLIJ",
     confirmation: "Potwierdzenie",
     message2: "Twoja wiadomość została wysłana",
+    phoneError: "Wpisz numer telefonu!",
+    nameError: "Wpisz imię!",
   },
 
   services: {
@@ -104,6 +106,8 @@ const plTranslation = {
     formMessagePlaceholder: "Wpisz swoją wiadomość",
     close: "ZAMKNIJ",
     send: "WYŚLIJ",
+    phoneError: "Wpisz numer telefonu!",
+    nameError: "Wpisz imię!",
   },
   team: {
     spendingTimeInPleasantAtmosphere:
@@ -147,6 +151,8 @@ const plTranslation = {
     confirmationTitle: "Potwierdzenie",
     confirmationMessage: "Twoja wiadomość została wysłana!",
     closeButton: "Zamknij",
+    phoneError: "Wpisz numer telefonu!",
+    nameError: "Wpisz imię!",
   },
 };
 

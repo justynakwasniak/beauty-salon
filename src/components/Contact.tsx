@@ -1,14 +1,45 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { useTranslation } from "react-i18next"; // Importujemy hook do tłumaczeń
-import "../styles/Contact.css"; // Import pliku CSS
+import { useTranslation } from "react-i18next";
+import "../styles/Contact.css";
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation(); // Używamy hooka do tłumaczeń
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+  });
 
-  const handleShowModal = () => setShowModal(true);
+  const handleShowModal = () => {
+    const newErrors = {
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+    };
+
+    if (newErrors.name || newErrors.phone) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setShowModal(true);
+    setFormData({ name: "", phone: "", message: "" });
+    setErrors({ name: false, phone: false });
+  };
+
   const handleCloseModal = () => setShowModal(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <section className="contact-container">
@@ -19,15 +50,31 @@ const Contact: React.FC = () => {
             <Form.Group controlId="formName">
               <Form.Control
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder={t("contact.namePlaceholder")}
+                isInvalid={errors.name}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                {t("contact.nameError")}
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formPhone">
               <Form.Control
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder={t("contact.phonePlaceholder")}
+                isInvalid={errors.phone}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                {t("contact.phoneError")}
+              </Form.Control.Feedback>
             </Form.Group>
           </div>
 
@@ -35,6 +82,9 @@ const Contact: React.FC = () => {
             <Form.Control
               as="textarea"
               rows={3}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder={t("contact.messagePlaceholder")}
             />
           </Form.Group>

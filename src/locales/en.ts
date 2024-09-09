@@ -78,6 +78,8 @@ const enTranslation = {
     send: "SEND",
     confirmation: "Confirmation",
     message2: "Your message has been sent",
+    phoneError: "Write phone number!",
+    nameError: "Write name!",
   },
   services: {
     spendTimeWithProfessionals: "SPEND TIME WITH THE BEST PROFESSIONALS",
@@ -102,6 +104,8 @@ const enTranslation = {
     formMessagePlaceholder: "Enter your message",
     close: "CLOSE",
     send: "SEND",
+    phoneError: "Write phone number!",
+    nameError: "Write name!",
   },
   team: {
     spendingTimeInPleasantAtmosphere:
@@ -145,6 +149,8 @@ const enTranslation = {
     confirmationTitle: "Confirmation",
     confirmationMessage: "Your message has been sent!",
     closeButton: "Close",
+    phoneError: "Write phone number!",
+    nameError: "Write name!",
   },
 };
 

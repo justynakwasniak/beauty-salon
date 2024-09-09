@@ -80,6 +80,14 @@ const Header: React.FC = () => {
     }
 
     setMessageSent(true); // Ustaw stan na wysłaną wiadomość
+
+    // Zresetuj formularz po wysłaniu wiadomości
+    setFormData({
+      name: "",
+      phone: "",
+      message: "",
+    });
+
     // Możesz dodać dodatkową logikę tutaj, np. wysyłanie formularza
   };
 

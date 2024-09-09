@@ -10,6 +10,15 @@ const AboutUs: React.FC = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+  });
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -18,13 +27,28 @@ const AboutUs: React.FC = () => {
   const handleCloseModal = () => setShowModal(false);
 
   const handleSend = () => {
-    const form = document.getElementById("contactForm") as HTMLFormElement;
-    if (form.checkValidity()) {
-      setMessageSent(true); // Ustaw stan na wysłaną wiadomość
-      form.reset(); // Opcjonalnie, resetuj formularz po wysłaniu
-    } else {
-      form.reportValidity(); // Wyświetl komunikaty o błędach walidacji
+    // Walidacja formularza
+    const newErrors = {
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+    };
+
+    if (newErrors.name || newErrors.phone) {
+      setErrors(newErrors); // Ustaw błędy, jeśli pola są puste
+      return;
     }
+
+    // Jeśli walidacja przejdzie, zresetuj formularz i wyświetl wiadomość potwierdzenia
+    setMessageSent(true);
+    setFormData({ name: "", phone: "", message: "" }); // Resetuj wartości formularza
+    setErrors({ name: false, phone: false }); // Zresetuj błędy
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -48,7 +72,7 @@ const AboutUs: React.FC = () => {
           </div>
 
           {/* Prawa strona z tekstem i przyciskiem */}
-          <div className="col-md-6 ">
+          <div className="col-md-6">
             <p className="about-us">{t("aboutUs.title")}</p>
             <h2>{t("aboutUs.heading")}</h2>
             <h4>{t("aboutUs.subheading")}</h4>
@@ -77,18 +101,32 @@ const AboutUs: React.FC = () => {
                 <Form.Label>{t("aboutUs.formName")}</Form.Label>
                 <Form.Control
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder={t("aboutUs.formNamePlaceholder")}
+                  isInvalid={errors.name} // Ustawienie walidacji
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  {t("aboutUs.nameError")}
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formPhone">
                 <Form.Label>{t("aboutUs.formPhone")}</Form.Label>
                 <Form.Control
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder={t("aboutUs.formPhonePlaceholder")}
+                  isInvalid={errors.phone} // Ustawienie walidacji
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  {t("aboutUs.phoneError")}
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formMessage">
@@ -96,6 +134,9 @@ const AboutUs: React.FC = () => {
                 <Form.Control
                   as="textarea"
                   rows={3}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder={t("aboutUs.formMessagePlaceholder")}
                 />
               </Form.Group>
@@ -105,9 +146,6 @@ const AboutUs: React.FC = () => {
         <Modal.Footer>
           {!messageSent && (
             <>
-              <Button className="button" onClick={handleCloseModal}>
-                {t("aboutUs.close")}
-              </Button>
               <Button className="button" onClick={handleSend}>
                 {t("aboutUs.send")}
               </Button>

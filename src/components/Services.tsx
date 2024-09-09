@@ -17,23 +17,45 @@ const servicesList = [
 const Services: React.FC = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
+  const [messageSent, setMessageSent] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+  });
 
   const handleShowModal = () => {
     setShowModal(true);
-    setMessageSent(false); // Resetuj stan wysłanej wiadomości przy otwieraniu modalu
+    setMessageSent(false);
   };
 
   const handleCloseModal = () => setShowModal(false);
 
   const handleSend = () => {
-    const form = document.getElementById("servicesForm") as HTMLFormElement;
-    if (form.checkValidity()) {
-      setMessageSent(true); // Ustaw stan na wysłaną wiadomość
-      form.reset(); // Opcjonalnie, resetuj formularz po wysłaniu
-    } else {
-      form.reportValidity(); // Wyświetl komunikaty o błędach walidacji
+    const newErrors = {
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+    };
+
+    if (newErrors.name || newErrors.phone) {
+      setErrors(newErrors);
+      return;
     }
+
+    setMessageSent(true);
+    setFormData({ name: "", phone: "", message: "" });
+    setErrors({ name: false, phone: false });
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -49,7 +71,6 @@ const Services: React.FC = () => {
         </div>
         <div className="container">
           <div className="row">
-            {/* Sekcja po lewej stronie */}
             <div className="col-md-6">
               <div className="services-list">
                 <ul>
@@ -64,7 +85,6 @@ const Services: React.FC = () => {
               </div>
             </div>
 
-            {/* Sekcja po prawej stronie */}
             <div className="col-md-6">
               <div className="services-list">
                 <ul>
@@ -85,7 +105,6 @@ const Services: React.FC = () => {
             </div>
           </div>
 
-          {/* Przycisk rezerwacji online */}
           <div className="text-center mt-4">
             <Button className="button" onClick={handleShowModal}>
               {t("services.bookOnline")}
@@ -94,7 +113,6 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal z formularzem */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           {!messageSent && (
@@ -104,8 +122,8 @@ const Services: React.FC = () => {
         <Modal.Body>
           {messageSent ? (
             <div className="confirmation-message">
-              <h4>Confirmation</h4>
-              <p>Your message has been sent!</p>
+              <h4>{t("services.confirmationTitle")}</h4>
+              <p>{t("services.confirmationMessage")}</p>
             </div>
           ) : (
             <Form id="servicesForm">
@@ -113,18 +131,32 @@ const Services: React.FC = () => {
                 <Form.Label>{t("services.formName")}</Form.Label>
                 <Form.Control
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder={t("services.formNamePlaceholder")}
+                  isInvalid={errors.name}
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  {t("services.nameError")}
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formPhone">
                 <Form.Label>{t("services.formPhone")}</Form.Label>
                 <Form.Control
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder={t("services.formPhonePlaceholder")}
+                  isInvalid={errors.phone}
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  {t("services.phoneError")}
+                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formMessage">
@@ -132,6 +164,9 @@ const Services: React.FC = () => {
                 <Form.Control
                   as="textarea"
                   rows={3}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder={t("services.formMessagePlaceholder")}
                 />
               </Form.Group>
@@ -141,9 +176,6 @@ const Services: React.FC = () => {
         <Modal.Footer>
           {!messageSent && (
             <>
-              <Button className="button" onClick={handleCloseModal}>
-                {t("services.close")}
-              </Button>
               <Button className="button" onClick={handleSend}>
                 {t("services.send")}
               </Button>
