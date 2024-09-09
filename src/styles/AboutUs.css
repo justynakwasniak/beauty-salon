@@ -64,3 +64,9 @@ h4 {
   color: var(--primary-color);
   border: 2px solid var(--three-color);
 }
+
+@media (max-width: 480px) {
+  .about-us-container {
+    width: 200%;
+  }
+}
