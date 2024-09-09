@@ -105,3 +105,8 @@
   color: var(--primary-color);
   border: 2px solid var(--three-color);
 }
+@media (max-width: 480px) {
+  .services-container {
+    width: 200%;
+  }
+}

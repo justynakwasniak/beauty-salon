@@ -84,3 +84,8 @@ h2 sup {
   height: 1px; /* Grubość linii */
   background-color: var(--three-color);
 }
+@media (max-width: 480px) {
+  .company-ad-container {
+    width: 350%;
+  }
+}

@@ -109,7 +109,9 @@
 /* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
 @media (max-width: 480px) {
   .team-container {
-    padding: 20px; /* Zmniejszamy padding na bardzo małych ekranach */
+    padding: 20px;
+    width: 200%;
+    /* Zmniejszamy padding na bardzo małych ekranach */
   }
 
   .team-member h2 {

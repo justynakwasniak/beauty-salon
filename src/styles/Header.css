@@ -10,34 +10,9 @@
   background-color: var(--primary-color);
   margin-bottom: 100px;
 }
-/* Styl dla ekranów średnich (tablety) */
-@media (max-width: 992px) {
-  .header-container {
-    padding: 15px 20px; /* Zmniejszamy górne i dolne paddingi */
-    margin-bottom: 80px; /* Zmniejszamy margines dolny */
-  }
-}
 
-/* Styl dla małych ekranów (telefony) */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 10px 15px; /* Jeszcze mniejszy padding na małych ekranach */
-    margin-bottom: 60px; /* Mniejszy margines dolny */
-    background-color: var(
-      --primary-color-light
-    ); /* Opcjonalnie zmiana koloru tła na jaśniejszy odcień */
-  }
-}
-
-/* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
-@media (max-width: 480px) {
-  .header-container {
-    padding: 10px; /* Minimalny padding na bardzo małych ekranach */
-    margin-bottom: 40px; /* Jeszcze mniejszy margines dolny */
-  }
-}
 h1 {
-  font-size: calc(1rem + 2vw);
+  font-size: 10rem;
 }
 
 .navbar {
@@ -50,32 +25,7 @@ h1 {
   gap: 20px;
   justify-content: flex-start;
 }
-@media (max-width: 992px) {
-  .nav {
-    gap: 15px; /* Zmniejszenie odstępów między elementami nawigacji */
-  }
-}
 
-/* Styl dla ekranów małych (telefony) */
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: column; /* Ustawienie nawigacji pionowo */
-    gap: 10px; /* Zmniejszenie odstępów między elementami */
-    align-items: center; /* Wyśrodkowanie nawigacji */
-  }
-
-  .nav-item {
-    font-size: 1.2rem; /* Zwiększenie rozmiaru czcionki dla lepszej czytelności */
-    padding: 10px 0; /* Więcej przestrzeni wokół każdego elementu */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    text-decoration: none;
-    color: var(--three-color);
-    font-weight: bold;
-    z-index: 1; /* Upewnia się, że linki są na górze */
-    position: relative;
-    cursor: pointer;
-  }
-}
 .nav-item {
   font-size: 1rem; /* Zwiększenie rozmiaru czcionki dla lepszej czytelności */
   padding: 10px 0; /* Więcej przestrzeni wokół każdego elementu */
@@ -223,7 +173,7 @@ h1 {
 
 .text-container h1 {
   color: var(--three-color);
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin: 10px 0;
 }
 
@@ -297,10 +247,12 @@ h1 {
 .dot.active {
   background-color: var(--secondary-color);
 }
-@media (max-width: 992px) {
+
+@media (max-width: 991px) {
   .main-content {
     flex-direction: column;
     align-items: center; /* Elementy będą ustawione obok siebie, ale bliżej góry */
+    padding: 10px;
   }
 
   .left-section {
@@ -317,29 +269,47 @@ h1 {
   .slider {
     height: 350px;
   }
-}
-
-/* Styl dla ekranów małych (telefony) */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column; /* Ustawienie sekcji jeden pod drugim */
-    padding: 10px;
+  .text-container {
+    margin: 0 auto 20px auto; /* Wyśrodkowanie tekstu i dodanie marginesu dolnego */
+    max-width: 100%; /* Ustawienie szerokości na 100% */
+    padding: 0 20px; /* Wewnętrzny odstęp, aby tekst nie dotykał krawędzi */
   }
 
-  .left-section,
-  .right-section {
-    width: 100%;
-    margin-bottom: 20px; /* Dodanie odstępu między sekcjami */
-    margin-left: 0;
+  h1 {
+    font-size: 15rem; /* Dostosowanie rozmiaru nagłówka na mniejszych ekranach */
   }
 
-  .slider {
-    height: 300px;
+  .sub-title {
+    font-size: 1rem; /* Zmniejszenie rozmiaru podtytułu */
   }
 }
 
 /* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
 @media (max-width: 480px) {
+  .header-container {
+    width: 200%;
+  }
+  .social-links {
+    margin-left: -30px;
+  }
+  .text-container {
+    max-width: 100%; /* Zapewnia, że kontener zajmuje całą szerokość ekranu */
+    margin-left: -100px; /* Usuwamy margines boczny */
+    margin-right: 0; /* Usuwamy margines boczny */
+    margin-top: 10px; /* Zmniejszamy margines górny */
+    margin-bottom: 20px; /* Dodajemy trochę przestrzeni na dole */
+    padding: 0 10px; /* Minimalny padding, aby tekst nie dotykał krawędzi ekranu */
+    box-sizing: border-box; /* Padding zostaje uwzględniony w szerokości kontenera */
+  }
+  .text-container h1 {
+    font-size: 2rem; /* Zmniejszamy rozmiar czcionki nagłówka */
+    text-align: center; /* Środkowanie tekstu w nagłówku */
+  }
+
+  .sub-title {
+    font-size: 0.5rem; /* Zmniejszamy rozmiar podtytułu */
+    text-align: center; /* Środkowanie podtytułu */
+  }
   .main-content {
     padding: 5px;
   }
@@ -356,54 +326,6 @@ h1 {
 
   .left-section {
     margin-left: 0;
-  }
-}
-@media (max-width: 992px) {
-  .text-container {
-    margin: 0 auto 20px auto; /* Wyśrodkowanie tekstu i dodanie marginesu dolnego */
-    max-width: 100%; /* Ustawienie szerokości na 100% */
-    padding: 0 20px; /* Wewnętrzny odstęp, aby tekst nie dotykał krawędzi */
-  }
-}
-
-/* Styl dla małych ekranów (telefony) */
-@media (max-width: 768px) {
-  .text-container {
-    max-width: 100%; /* Ustawienie na 100% szerokości, aby zajmował całą szerokość ekranu */
-    margin-left: 0;
-    margin-top: 0; /* Brak marginesu górnego */
-    margin-bottom: 20px;
-    padding: 0 15px; /* Lekki padding, aby tekst nie dotykał krawędzi */
-  }
-
-  h1 {
-    font-size: 1rem; /* Dostosowanie rozmiaru nagłówka na mniejszych ekranach */
-  }
-
-  .sub-title {
-    font-size: 1rem; /* Zmniejszenie rozmiaru podtytułu */
-  }
-}
-
-/* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
-@media (max-width: 480px) {
-  .text-container {
-    max-width: 100%; /* Zapewnia, że kontener zajmuje całą szerokość ekranu */
-    margin-left: 0; /* Usuwamy margines boczny */
-    margin-right: 0; /* Usuwamy margines boczny */
-    margin-top: 10px; /* Zmniejszamy margines górny */
-    margin-bottom: 20px; /* Dodajemy trochę przestrzeni na dole */
-    padding: 0 10px; /* Minimalny padding, aby tekst nie dotykał krawędzi ekranu */
-    box-sizing: border-box; /* Padding zostaje uwzględniony w szerokości kontenera */
-  }
-  .text-container h1 {
-    font-size: 2rem; /* Zmniejszamy rozmiar czcionki nagłówka */
-    text-align: center; /* Środkowanie tekstu w nagłówku */
-  }
-
-  .sub-title {
-    font-size: 1rem; /* Zmniejszamy rozmiar podtytułu */
-    text-align: center; /* Środkowanie podtytułu */
   }
 }
 /* Example styles for invalid fields */

@@ -32,8 +32,8 @@
 }
 
 .image-box {
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
   background-color: var(
     --primary-color
   ); /* Placeholder koloru tła dla obrazków */
@@ -70,7 +70,10 @@
 /* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
 @media (max-width: 480px) {
   .kosmetikos-container {
-    padding: 20px; /* Zmniejszenie paddingu na bardzo małych ekranach */
+    padding: 20px;
+    width: 200%;
+
+    /* Zmniejszenie paddingu na bardzo małych ekranach */
   }
 
   .images-grid {
