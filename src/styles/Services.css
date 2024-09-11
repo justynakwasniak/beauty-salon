@@ -107,6 +107,6 @@
 }
 @media (max-width: 480px) {
   .services-container {
-    width: 200%;
+    width: 100%;
   }
 }

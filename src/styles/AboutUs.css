@@ -67,6 +67,6 @@ h4 {
 
 @media (max-width: 480px) {
   .about-us-container {
-    width: 200%;
+    width: 100%;
   }
 }

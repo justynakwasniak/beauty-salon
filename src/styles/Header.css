@@ -4,191 +4,58 @@
   --three-color: #2d3a6f;
 }
 
+/* Resetowanie marginesów i wypełnień dla wszystkich elementów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stylowanie nagłówka */
 .header-container {
   width: 100%;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Stylowanie tekstu nagłówka */
+.header-text {
+  padding: 0;
   background-color: var(--primary-color);
-  margin-bottom: 100px;
+  text-align: center;
+}
+
+.text-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sub-title {
+  font-size: 1rem;
+  color: #6c757d;
 }
 
 h1 {
-  font-size: 10rem;
+  font-size: 4rem;
+  color: #343a40;
 }
 
-.navbar {
-  padding: 10px;
+.slogan {
+  font-size: 1rem;
+  color: #6c757d;
 }
 
-.nav {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  justify-content: flex-start;
-}
-
-.nav-item {
-  font-size: 1rem; /* Zwiększenie rozmiaru czcionki dla lepszej czytelności */
-  padding: 10px 0; /* Więcej przestrzeni wokół każdego elementu */
-  text-align: center; /* Wyśrodkowanie tekstu */
-  text-decoration: none;
-  color: var(--three-color);
-  font-weight: bold;
-  z-index: 1; /* Upewnia się, że linki są na górze */
+/* Stylowanie slidera */
+.slider-container {
   position: relative;
-  cursor: pointer;
-}
-
-.nav-item:hover {
-  color: var(--secondary-color);
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.phone-number {
-  color: var(--three-color);
+  width: 100%;
+  height: 500px; /* Wysokość slidera */
+  overflow: hidden;
   margin: 0;
-  font-size: 1rem;
-  font-weight: bold; /* Pogrubienie tekstu */
-  text-decoration: none; /* Usuwa podkreślenie */
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-.phone-number:hover {
-  color: var(--secondary-color); /* Kolor po najechaniu */
-}
-
-.reserve-btn {
-  background-color: transparent; /* Przezroczyste tło w stanie statycznym */
-  color: var(--secondary-color); /* Kolor tekstu ustawiony na granatowy */
-  border: 2px solid var(--secondary-color); /* Granatowa obwódka */
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 50px; /* Zaokrąglone krawędzie */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Płynna animacja zmiany koloru */
-}
-
-.reserve-btn:hover {
-  background-color: var(--three-color); /* Granatowe tło po najechaniu */
-  color: var(--primary-color);
-  border: 2px solid var(--three-color);
-}
-
-.main-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-.left-section {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  margin-bottom: -180px;
-  margin-left: -50px;
-  /* Zapewnia, że oba elementy są rozmieszczone w pionie */
-}
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  margin-right: 40px;
-  position: relative;
-  margin-bottom: -100px;
-}
-
-.social-link {
-  display: block;
-  font-size: 1.2rem; /* Dostosuj rozmiar czcionki, jeśli potrzebne */
-  color: #2d3a6f; /* Przykładowy kolor */
-  text-decoration: none; /* Usuwa podkreślenie */
-  transform: rotate(-90deg); /* Obraca linki o 180 stopni */
-  margin-bottom: 80px; /* Odstęp między linkami */
-}
-
-.social-link:hover {
-  color: var(--secondary-color);
-}
-
-.social-links a {
-  text-decoration: none;
-  color: var(--secondary-color);
-  font-size: 1.2rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.social-links a:hover {
-  color: var(--three-color);
-}
-
-.youtube {
-  position: relative; /* Ustawienie pozycji elementu do pozycjonowania pseudo-elementu */
-  padding-left: 50px;
-}
-
-.youtube::before {
-  content: ""; /* Pusty element, który będzie linią */
-  position: absolute;
-  left: 0; /* Ustawienie linii na lewo od linku */
-  top: 50%; /* Umieść linię w połowie wysokości linku */
-  transform: translateY(-50%); /* Środkowanie linii względem tekstu */
-  width: 30px; /* Długość linii */
-  height: 1px; /* Grubość linii */
-  background-color: #2d3a6f; /* Kolor linii */
-}
-
-.text-container {
-  max-width: 500px;
-  margin-top: -300px;
-  text-align: left;
-  color: var(--three-color);
-  margin-left: -30px;
-  margin-bottom: -70px;
-  z-index: 2;
-  position: relative;
-}
-.text-container p.sub-title {
-  font-size: 1rem; /* Dostosuj rozmiar czcionki, jeśli potrzebne */
-  margin: 1em 0;
-  position: relative; /* Ustawienie pozycji, aby pseudo-element mógł być odpowiednio pozycjonowany */
-  padding-left: 40px;
-}
-.text-container p.sub-title::before {
-  content: ""; /* Pusty element, który będzie linią */
-  position: absolute;
-  left: 0; /* Ustawienie linii na początku paragrafu */
-  top: 50%; /* Środkowanie linii w pionie */
-  transform: translateY(-50%); /* Dokładne wyrównanie linii do środka tekstu */
-  width: 30px; /* Długość linii */
-  height: 1px; /* Grubość linii */
-  background-color: var(--secondary-color);
-}
-
-.text-container h1 {
-  color: var(--three-color);
-  font-size: 3.5rem;
-  margin: 10px 0;
-}
-
-.right-section {
-  width: 60%;
-  z-index: 0;
+  padding: 0;
 }
 
 .slider {
-  position: relative;
-  height: 400px;
-  width: 100%;
-}
-
-.slider-image {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -196,144 +63,95 @@ h1 {
   transition: background-image 1s ease-in-out;
 }
 
+/* Upewnij się, że slider-nav jest na sliderze */
 .slider-nav {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px; /* Zmniejszamy odstęp od dołu */
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Wyśrodkowujemy przyciski i kropki */
   align-items: center;
+  gap: 20px; /* Dodajemy przerwę między przyciskami i kropkami */
+  z-index: 10; /* Upewnij się, że slider-nav jest nad sliderem */
 }
 
 .prev-btn,
 .next-btn {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: var(--primary-color);
-  background: none; /* Usuń tło */
-  border: none; /* Usuń obramowanie */
-  padding: 0; /* Usuń wypełnienie */
-  cursor: pointer; /* Zmień kursor na "pointer", aby wskazać interaktywność */
-  text-decoration: none;
-  font-size: 1rem; /* Możesz dostosować rozmiar tekstu */
-  position: relative;
-}
-.prev-btn::after,
-.next-btn::after {
-  content: ""; /* Pseudo-element do stworzenia linii */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -5px; /* Dystans linii od tekstu, możesz dostosować */
-  height: 2px; /* Grubość linii */
-  background-color: var(--primary-color);
-  width: 100%; /* Szerokość linii na całą szerokość tekstu */
+  color: #007bff;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .dots {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  gap: 8px; /* Mniejsza przerwa między kropkami */
 }
 
 .dot {
   width: 12px;
   height: 12px;
-  background-color: var(--three-color);
+  background-color: #6c757d;
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 
 .dot.active {
-  background-color: var(--secondary-color);
+  background-color: #007bff;
 }
+/* Stylowanie Navbar */
 
+/* Stylowanie dla responsywności */
 @media (max-width: 991px) {
-  .main-content {
-    flex-direction: column;
-    align-items: center; /* Elementy będą ustawione obok siebie, ale bliżej góry */
+  .header-text {
     padding: 10px;
   }
 
-  .left-section {
-    width: 100%;
-    margin-bottom: 20px;
-    order: 1;
-  }
-
-  .right-section {
-    width: 100%;
-    order: 2;
+  .text-content {
+    padding: 0 10px;
   }
 
   .slider {
-    height: 350px;
-  }
-  .text-container {
-    margin: 0 auto 20px auto; /* Wyśrodkowanie tekstu i dodanie marginesu dolnego */
-    max-width: 100%; /* Ustawienie szerokości na 100% */
-    padding: 0 20px; /* Wewnętrzny odstęp, aby tekst nie dotykał krawędzi */
+    height: 300px;
   }
 
-  h1 {
-    font-size: 15rem; /* Dostosowanie rozmiaru nagłówka na mniejszych ekranach */
+  .prev-btn,
+  .next-btn {
+    font-size: 0.9rem;
   }
 
-  .sub-title {
-    font-size: 1rem; /* Zmniejszenie rozmiaru podtytułu */
+  .dot {
+    width: 10px;
+    height: 10px;
   }
 }
 
-/* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
 @media (max-width: 480px) {
-  .header-container {
-    width: 200%;
-  }
-  .social-links {
-    margin-left: -30px;
-  }
-  .text-container {
-    max-width: 100%; /* Zapewnia, że kontener zajmuje całą szerokość ekranu */
-    margin-left: -100px; /* Usuwamy margines boczny */
-    margin-right: 0; /* Usuwamy margines boczny */
-    margin-top: 10px; /* Zmniejszamy margines górny */
-    margin-bottom: 20px; /* Dodajemy trochę przestrzeni na dole */
-    padding: 0 10px; /* Minimalny padding, aby tekst nie dotykał krawędzi ekranu */
-    box-sizing: border-box; /* Padding zostaje uwzględniony w szerokości kontenera */
-  }
-  .text-container h1 {
-    font-size: 2rem; /* Zmniejszamy rozmiar czcionki nagłówka */
-    text-align: center; /* Środkowanie tekstu w nagłówku */
-  }
-
   .sub-title {
-    font-size: 0.5rem; /* Zmniejszamy rozmiar podtytułu */
-    text-align: center; /* Środkowanie podtytułu */
-  }
-  .main-content {
-    padding: 5px;
+    font-size: 0.9rem;
   }
 
-  .left-section,
-  .right-section {
-    width: 100%;
-    margin-bottom: 15px;
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .slogan {
+    font-size: 0.8rem;
   }
 
   .slider {
     height: 250px;
   }
 
-  .left-section {
-    margin-left: 0;
+  .prev-btn,
+  .next-btn {
+    font-size: 0.8rem;
   }
-}
-/* Example styles for invalid fields */
-.is-invalid {
-  border-color: #dc3545;
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
 
-.form-control-feedback {
-  color: #dc3545;
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
 }

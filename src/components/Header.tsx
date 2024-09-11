@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Header.css";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Navbar, Nav, Container, Button, Modal, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -15,7 +15,7 @@ const images = [bs1, bs2, bs3];
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
+  const [messageSent, setMessageSent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,9 +25,8 @@ const Header: React.FC = () => {
     name: false,
     phone: false,
   });
-  const { t } = useTranslation(); // Hook do tłumaczenia
+  const { t } = useTranslation();
 
-  // Slider autoplay functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
@@ -38,7 +37,6 @@ const Header: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Manual slider controls
   const handlePrevClick = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -51,24 +49,13 @@ const Header: React.FC = () => {
     );
   };
 
-  // Funkcja obsługująca płynne przewijanie
-  const handleScrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Funkcje do zarządzania modalem
   const handleShowModal = () => {
     setShowModal(true);
-    setMessageSent(false); // Resetuj stan wysłanej wiadomości przy otwieraniu modalu
+    setMessageSent(false);
   };
   const handleCloseModal = () => setShowModal(false);
 
-  // Funkcja do obsługi kliknięcia przycisku "Send"
   const handleSend = () => {
-    // Walidacja formularza
     const newErrors = {
       name: formData.name.trim() === "",
       phone: formData.phone.trim() === "",
@@ -79,16 +66,13 @@ const Header: React.FC = () => {
       return;
     }
 
-    setMessageSent(true); // Ustaw stan na wysłaną wiadomość
+    setMessageSent(true);
 
-    // Zresetuj formularz po wysłaniu wiadomości
     setFormData({
       name: "",
       phone: "",
       message: "",
     });
-
-    // Możesz dodać dodatkową logikę tutaj, np. wysyłanie formularza
   };
 
   const handleChange = (
@@ -100,102 +84,64 @@ const Header: React.FC = () => {
 
   return (
     <header className="header-container">
-      {/* NavBar */}
-      <nav className="navbar d-flex justify-content-between">
-        <ul className="nav">
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("home")}>
-              {t("header.home")}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("about")}>
-              {t("header.about")}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("services")}>
-              {t("header.services")}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("team")}>
-              {t("header.team")}
-            </a>
-          </li>
-          <li className="nav-item">
-            <a onClick={() => handleScrollToSection("contact")}>
-              {t("header.contact")}
-            </a>
-          </li>
-        </ul>
+      {/* Navbar */}
+      <Navbar bg="light" expand="lg" sticky="top">
+        <Container>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            {/* Linki nawigacyjne po lewej */}
+            <Nav className="me-auto">
+              <Nav.Link href="#home">{t("header.home")}</Nav.Link>
+              <Nav.Link href="#about">{t("header.about")}</Nav.Link>
+              <Nav.Link href="#services">{t("header.services")}</Nav.Link>
+              <Nav.Link href="#team">{t("header.team")}</Nav.Link>
+              <Nav.Link href="#contact">{t("header.contact")}</Nav.Link>
+            </Nav>
 
-        <div className="nav-right">
-          <a className="phone-number">Tel: +48 123 456 789</a>
-          <button className="reserve-btn" onClick={handleShowModal}>
-            {t("header.reserve")}
-          </button>
-          <LanguageSwitcher />
+            {/* Sekcja z telefonem i buttonami po prawej */}
+            <Nav className="ms-auto">
+              <Nav.Link href="tel:+48123456789">
+                {t("header.phone")}: +48 123 456 789
+              </Nav.Link>
+              <Button variant="primary" onClick={handleShowModal}>
+                {t("header.reserve")}
+              </Button>
+              <LanguageSwitcher />
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* Header Text */}
+      <Container className="header-text">
+        <div className="text-content">
+          <p className="sub-title">{t("header.subtitle")}</p>
+          <h1>{t("header.heading")}</h1>
+          <p className="slogan">{t("header.slogan")}</p>
         </div>
-      </nav>
+      </Container>
 
-      {/* Main content with two sections */}
-      <div className="main-content">
-        {/* Left section with social links and text */}
-        <div className="left-section">
-          <div className="social-links">
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link instagram"
-            >
-              {t("header.insta")}
-            </a>
-            <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link youtube"
-            >
-              {t("header.youtube")}
-            </a>
+      {/* Slider */}
+      <div className="slider-container">
+        <div
+          className="slider"
+          style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+        ></div>
+        <div className="slider-nav">
+          <Button variant="link" className="prev-btn" onClick={handlePrevClick}>
+            {t("header.prev")}
+          </Button>
+          <div className="dots">
+            {images.map((_, index) => (
+              <span
+                key={index}
+                className={`dot ${currentImageIndex === index ? "active" : ""}`}
+              ></span>
+            ))}
           </div>
-          <div className="text-container">
-            <p className="sub-title">{t("header.subtitle")}</p>
-            <h1>{t("header.heading")}</h1>
-            <p className="slogan">{t("header.slogan")}</p>
-          </div>
-        </div>
-
-        {/* Right section with image slider */}
-        <div className="right-section">
-          <div className="slider">
-            <div
-              className="slider-image"
-              style={{
-                backgroundImage: `url(${images[currentImageIndex]})`,
-              }}
-            ></div>
-            <div className="slider-nav">
-              <button className="prev-btn" onClick={handlePrevClick}>
-                {t("header.prev")}
-              </button>
-              <div className="dots">
-                {images.map((_, index) => (
-                  <span
-                    key={index}
-                    className={`dot ${
-                      currentImageIndex === index ? "active" : ""
-                    }`}
-                  ></span>
-                ))}
-              </div>
-              <button className="next-btn" onClick={handleNextClick}>
-                {t("header.next")}
-              </button>
-            </div>
-          </div>
+          <Button variant="link" className="next-btn" onClick={handleNextClick}>
+            {t("header.next")}
+          </Button>
         </div>
       </div>
 

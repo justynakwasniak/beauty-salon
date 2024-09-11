@@ -71,7 +71,7 @@
 @media (max-width: 480px) {
   .kosmetikos-container {
     padding: 20px;
-    width: 200%;
+    width: 100%;
 
     /* Zmniejszenie paddingu na bardzo małych ekranach */
   }

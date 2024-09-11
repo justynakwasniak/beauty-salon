@@ -29,10 +29,8 @@
 
 /* Prawa strona z kwadratami */
 .company-ad-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolumny */
-  grid-gap: 20px;
-  flex: 1; /* Zajmuje 1 część z całości */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Stylizacja dla pojedynczych kwadratów */
@@ -42,6 +40,10 @@
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-bottom: 20px;
+}
+.row.g-3 > [class*="col-"] {
+  margin-bottom: 1.5rem; /* Odstęp między elementami gridu */
 }
 
 .info-box h2 {
@@ -62,11 +64,11 @@ h2 sup {
 /* Przesunięcie dolnego rzędu kwadratów */
 .company-ad-info .info-box:nth-child(2),
 .company-ad-info .info-box:nth-child(4) {
-  margin-top: 40px; /* Przesunięcie dolnych kwadratów w dół */
+  margin-top: 60px;
 }
 .company-ad-info .info-box:nth-child(1),
 .company-ad-info .info-box:nth-child(3) {
-  margin-bottom: 40px; /* Przesunięcie dolnych kwadratów w dół */
+  margin-bottom: 60px;
 }
 .p-companyad {
   text-align: left; /* Wyrównanie tekstu do lewej */
@@ -84,8 +86,32 @@ h2 sup {
   height: 1px; /* Grubość linii */
   background-color: var(--three-color);
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  /* Zmniejszamy padding na mniejszych ekranach */
   .company-ad-container {
-    width: 350%;
+    padding: 20px;
+  }
+
+  /* Dopasowanie rozmiaru tekstu w nagłówku */
+  .company-ad-text h1 {
+    font-size: 2rem;
+  }
+  .company-ad-info .row {
+    gap: 20px; /* Użycie gap na większych ekranach */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Na bardzo małych ekranach zmniejszamy font-size i padding */
+  .company-ad-container {
+    padding: 10px;
+  }
+
+  .company-ad-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .info-box {
+    padding: 10px;
   }
 }

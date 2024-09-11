@@ -2,13 +2,15 @@
   display: flex;
   justify-content: space-between;
   padding: 50px;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .contact-left,
 .contact-right {
   flex: 1;
   padding: 20px;
-  background-color: var(--primary-color);
+  background-color: #f1eae3;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -44,7 +46,7 @@
 }
 
 .contact-left .form-control {
-  background-color: var(--primary-color); /* Kolor tła pola tekstowego */
+  background-color: #f1eae3; /* Kolor tła pola tekstowego */
   color: var(--three-color); /* Kolor tekstu w polu tekstowym */
   border: none; /* Usunięcie standardowego obramowania */
   border-bottom: 1px solid var(--three-color); /* Dodanie linii pod polem */
@@ -155,4 +157,18 @@
   width: 50px; /* Długość linii */
   height: 1px; /* Grubość linii */
   background-color: var(--three-color);
+}
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Przełączenie na układ kolumnowy */
+  }
+
+  .contact-left {
+    margin-right: 0;
+    margin-bottom: 20px; /* Dodaj odstęp między kolumnami */
+  }
+
+  .contact-right {
+    margin-left: 0;
+  }
 }

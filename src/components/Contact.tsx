@@ -42,8 +42,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="contact-container">
-      <div className="contact-left">
+    <section className="contact-container d-flex flex-column flex-md-row">
+      <div className="contact-left flex-grow-1">
         <h2>{t("contact.onlineReservation")}</h2>
         <Form>
           <div className="form-row">
@@ -95,14 +95,13 @@ const Contact: React.FC = () => {
         </Form>
       </div>
 
-      <div className="contact-right">
+      <div className="contact-right flex-grow-1">
         <h2>{t("contact.contactTitle")}</h2>
 
-        {/* Adres */}
         <div className="contact-item">
           <i className="fas fa-map-marker-alt"></i>
           <a
-            href="https://www.google.pl/maps/place/Rynek+G%C5%82%C3%B3wny+1,+31-042+Krak%C3%B3w/@50.0614748,19.9339349,17z/data=!3m1!4b1!4m6!3m5!1s0x47165b0de6c9cfcd:0x1f9a5e46a7c08a33!8m2!3d50.0614714!4d19.9365098!16s%2Fg%2F11csknb2n4?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.pl/maps/place/Rynek+G%C5%82%C3%B3wny+1,+31-042+Krak%C3%B3w"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -110,19 +109,16 @@ const Contact: React.FC = () => {
           </a>
         </div>
 
-        {/* Telefon */}
         <div className="contact-item">
           <i className="fas fa-phone"></i>
           <a href="tel:+48123456789">{t("contact.phone")}</a>
         </div>
 
-        {/* Email */}
         <div className="contact-item">
           <i className="fas fa-envelope"></i>
           <a href="mailto:kontakt@twojadomena.pl">{t("contact.email")}</a>
         </div>
 
-        {/* Godziny otwarcia */}
         <p className="p-hours">
           {t("contact.openingHours")} <br />
         </p>
