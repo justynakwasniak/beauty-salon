@@ -90,12 +90,22 @@ const Header: React.FC = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             {/* Linki nawigacyjne po lewej */}
-            <Nav className="me-auto">
-              <Nav.Link href="#home">{t("header.home")}</Nav.Link>
-              <Nav.Link href="#about">{t("header.about")}</Nav.Link>
-              <Nav.Link href="#services">{t("header.services")}</Nav.Link>
-              <Nav.Link href="#team">{t("header.team")}</Nav.Link>
-              <Nav.Link href="#contact">{t("header.contact")}</Nav.Link>
+            <Nav className="me-auto navbar">
+              <Nav.Link className="nav-link" href="#home">
+                {t("header.home")}
+              </Nav.Link>
+              <Nav.Link className="nav-link" href="#about">
+                {t("header.about")}
+              </Nav.Link>
+              <Nav.Link className="nav-link" href="#services">
+                {t("header.services")}
+              </Nav.Link>
+              <Nav.Link className="nav-link" href="#team">
+                {t("header.team")}
+              </Nav.Link>
+              <Nav.Link className="nav-link" href="#contact">
+                {t("header.contact")}
+              </Nav.Link>
             </Nav>
 
             {/* Sekcja z telefonem i buttonami po prawej */}
@@ -103,7 +113,7 @@ const Header: React.FC = () => {
               <Nav.Link href="tel:+48123456789">
                 {t("header.phone")}: +48 123 456 789
               </Nav.Link>
-              <Button variant="primary" onClick={handleShowModal}>
+              <Button className="btn-book" onClick={handleShowModal}>
                 {t("header.reserve")}
               </Button>
               <LanguageSwitcher />
@@ -118,6 +128,22 @@ const Header: React.FC = () => {
           <p className="sub-title">{t("header.subtitle")}</p>
           <h1>{t("header.heading")}</h1>
           <p className="slogan">{t("header.slogan")}</p>
+          <div className="social-links">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-instagram "></i>
+            </a>
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-youtube "></i>
+            </a>
+          </div>
         </div>
       </Container>
 

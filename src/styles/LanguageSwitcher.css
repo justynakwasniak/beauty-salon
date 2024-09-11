@@ -4,13 +4,25 @@
 }
 
 .language-switcher button {
-  background-color: var(--three-color);
-  border: 1px solid var(--primary-color);
-  padding: 3px 8px; /* Zmniejszono padding */
-  font-size: 0.7rem; /* Zmniejszono rozmiar czcionki */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Szerokość przycisków jako koła */
+  height: 40px; /* Wysokość przycisków jako koła */
+  border-radius: 50%; /* Zaokrąglone krawędzie tworzące kształt koła */
+  background-color: var(--three-color); /* Kolor tła przycisków */
+  color: var(--primary-color); /* Kolor tekstu */
+  text-align: center;
+  font-size: 0.9rem;
+  border: none; /* Brak obramowania */
   cursor: pointer;
-  border-radius: 15px; /* Zmniejszono border-radius */
-  color: var(--primary-color);
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.language-switcher-button:hover {
+  background-color: var(--secondary-color); /* Zmiana koloru tła na hover */
+  color: var(--primary-color); /* Zmiana koloru tekstu na hover */
 }
 
 .language-switcher button:hover {

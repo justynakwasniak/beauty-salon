@@ -43,7 +43,7 @@ const enTranslation = {
     subtitle: "Beauty Salon for Women in Kraków",
     heading: "BeautySalon",
     slogan:
-      "We are experts in women's beauty.Working carefully and with taste.",
+      "We are experts in women's beauty. Working carefully and with taste.",
     modalTitle: "Leave your details, we will call you back",
     name: "Name",
     phonePlaceholder: "Phone*",

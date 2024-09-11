@@ -10,6 +10,41 @@
   padding: 0;
   box-sizing: border-box;
 }
+.nav-bar {
+  --bs-navbar-active-color: --secondary-color;
+}
+.nav-link {
+  color: var(--three-color); /* Kolor domyślny linku */
+  font-weight: bold;
+  text-decoration: none; /* Usunięcie podkreślenia */
+}
+
+.nav-link:hover {
+  color: var(--secondary-color); /* Kolor linku na hover, focus i active */
+  text-decoration: none; /* Usunięcie podkreślenia na hover, focus i active */
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--three-color);
+  text-decoration: none;
+}
+.btn-book {
+  background-color: transparent; /* Przezroczyste tło w stanie statycznym */
+  color: var(--secondary-color); /* Kolor tekstu ustawiony na granatowy */
+  border: 2px solid var(--secondary-color); /* Granatowa obwódka */
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 50px; /* Zaokrąglone krawędzie */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 10px;
+}
+.btn-book:hover {
+  background-color: var(--three-color); /* Granatowe tło po najechaniu */
+  color: var(--primary-color);
+  border: 2px solid var(--three-color);
+}
 
 /* Stylowanie nagłówka */
 .header-container {
@@ -20,6 +55,7 @@
 
 /* Stylowanie tekstu nagłówka */
 .header-text {
+  position: relative;
   padding: 0;
   background-color: var(--primary-color);
   text-align: center;
@@ -28,21 +64,46 @@
 .text-content {
   max-width: 800px;
   margin: 0 auto;
+  color: var(--three-color);
+  position: relative;
+}
+.social-links {
+  position: absolute;
+  left: -270px;
+  bottom: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--primary-color);
+  font-size: 24px;
+}
+
+.social-links a {
+  margin: -5px;
+  color: var(--three-color);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--secondary-color);
 }
 
 .sub-title {
   font-size: 1rem;
-  color: #6c757d;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--secondary-color);
 }
 
 h1 {
   font-size: 4rem;
-  color: #343a40;
 }
 
 .slogan {
   font-size: 1rem;
-  color: #6c757d;
+  color: var(--three-color);
+  font-style: italic;
 }
 
 /* Stylowanie slidera */
@@ -77,12 +138,13 @@ h1 {
 
 .prev-btn,
 .next-btn {
-  color: #007bff;
+  color: var(--primary-color);
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
 }
 
 .dots {
@@ -93,13 +155,13 @@ h1 {
 .dot {
   width: 12px;
   height: 12px;
-  background-color: #6c757d;
+  background-color: var(--three-color);
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 
 .dot.active {
-  background-color: #007bff;
+  background-color: var(--secondary-color);
 }
 /* Stylowanie Navbar */
 
