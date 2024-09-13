@@ -41,7 +41,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodanie animacji */
 }
+
+.info-box:hover {
+  transform: scale(1.05) translateY(-5px); /* Powiększenie i lekkie przesunięcie w górę */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Zwiększenie cienia */
+}
+
 .row.g-3 > [class*="col-"] {
   margin-bottom: 1.5rem; /* Odstęp między elementami gridu */
 }

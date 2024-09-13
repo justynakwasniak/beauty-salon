@@ -46,8 +46,12 @@
   width: 25%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.team-member:hover {
+  transform: scale(1.05) translateY(-3px); /* Powiększenie i lekkie przesunięcie w górę */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Zwiększenie cienia */
+}
 .team-member img {
   width: 100%;
   border-radius: 10px;

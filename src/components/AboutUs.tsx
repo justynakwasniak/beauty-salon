@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useInView } from "react-intersection-observer"; // Importujemy hook
 import "../styles/AboutUs.css";
 
 import aboutus1 from "../assets/aboutus1.jpg";
@@ -9,7 +10,8 @@ import aboutus2 from "../assets/aboutus2.jpg";
 const AboutUs: React.FC = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [messageSent, setMessageSent] = useState(false); // Stan do śledzenia wysłanej wiadomości
+  const [messageSent, setMessageSent] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -20,28 +22,32 @@ const AboutUs: React.FC = () => {
     phone: false,
   });
 
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true, // Obrazy pojawiają się tylko raz
+    threshold: 0.1, // Element musi być w 10% widoczny, aby uruchomić animację
+  });
+
   const handleShowModal = () => {
     setShowModal(true);
-    setMessageSent(false); // Resetuj stan wysłanej wiadomości przy otwieraniu modalu
+    setMessageSent(false);
   };
+
   const handleCloseModal = () => setShowModal(false);
 
   const handleSend = () => {
-    // Walidacja formularza
     const newErrors = {
       name: formData.name.trim() === "",
       phone: formData.phone.trim() === "",
     };
 
     if (newErrors.name || newErrors.phone) {
-      setErrors(newErrors); // Ustaw błędy, jeśli pola są puste
+      setErrors(newErrors);
       return;
     }
 
-    // Jeśli walidacja przejdzie, zresetuj formularz i wyświetl wiadomość potwierdzenia
     setMessageSent(true);
-    setFormData({ name: "", phone: "", message: "" }); // Resetuj wartości formularza
-    setErrors({ name: false, phone: false }); // Zresetuj błędy
+    setFormData({ name: "", phone: "", message: "" });
+    setErrors({ name: false, phone: false });
   };
 
   const handleChange = (
@@ -56,19 +62,22 @@ const AboutUs: React.FC = () => {
       <div className="container">
         <div className="row">
           {/* Lewa strona ze zdjęciami */}
-          <div className="col-md-6">
-            <div className="about-us-images">
-              <img
-                src={aboutus1}
-                alt={t("aboutUs.imageAlt1")}
-                className="img-fluid image-style"
-              />
-              <img
-                src={aboutus2}
-                alt={t("aboutUs.imageAlt2")}
-                className="img-fluid image-style"
-              />
-            </div>
+          <div
+            className={`col-md-6 about-us-images ${
+              imageInView ? "in-view" : ""
+            }`}
+            ref={imageRef}
+          >
+            <img
+              src={aboutus1}
+              alt={t("aboutUs.imageAlt1")}
+              className="img-fluid image-style"
+            />
+            <img
+              src={aboutus2}
+              alt={t("aboutUs.imageAlt2")}
+              className="img-fluid image-style"
+            />
           </div>
 
           {/* Prawa strona z tekstem i przyciskiem */}
@@ -105,7 +114,7 @@ const AboutUs: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={t("aboutUs.formNamePlaceholder")}
-                  isInvalid={errors.name} // Ustawienie walidacji
+                  isInvalid={errors.name}
                   required
                 />
                 <Form.Control.Feedback type="invalid">
@@ -121,7 +130,7 @@ const AboutUs: React.FC = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder={t("aboutUs.formPhonePlaceholder")}
-                  isInvalid={errors.phone} // Ustawienie walidacji
+                  isInvalid={errors.phone}
                   required
                 />
                 <Form.Control.Feedback type="invalid">

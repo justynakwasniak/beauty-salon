@@ -51,6 +51,7 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  margin-bottom: 100px;
 }
 
 /* Stylowanie tekstu nagłówka */
@@ -90,14 +91,15 @@
 }
 
 .sub-title {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-top: 10px;
   font-weight: bold;
   color: var(--secondary-color);
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
+  margin-bottom: 30px;
 }
 
 .slogan {
@@ -110,7 +112,7 @@ h1 {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 500px; /* Wysokość slidera */
+  height: 600px; /* Wysokość slidera */
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -146,6 +148,10 @@ h1 {
   font-size: 1rem;
   text-decoration: none;
 }
+.prev-btn:hover,
+.next-btn:hover {
+  color: var(--three-color);
+}
 
 .dots {
   display: flex;
@@ -162,6 +168,23 @@ h1 {
 
 .dot.active {
   background-color: var(--secondary-color);
+}
+.navbar-right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Stylowanie linku z numerem telefonu */
+.phone-link {
+  color: var(--three-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.phone-link:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
 }
 /* Stylowanie Navbar */
 
@@ -187,6 +210,23 @@ h1 {
   .dot {
     width: 10px;
     height: 10px;
+  }
+  .navbar-right-section {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  .phone-link {
+    font-size: 0.9rem;
+  }
+
+  .btn-book {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+  .slider-container {
+    height: 400px; /* Dostosowanie wysokości dla średnich ekranów */
   }
 }
 
@@ -215,5 +255,24 @@ h1 {
   .dot {
     width: 8px;
     height: 8px;
+    margin-bottom: 50px;
+  }
+  .navbar-right-section {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .phone-link {
+    font-size: 0.8rem;
+  }
+
+  .btn-book {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+  }
+  .slider-container {
+    height: 300px; /* Dostosowanie wysokości dla małych ekranów */
   }
 }

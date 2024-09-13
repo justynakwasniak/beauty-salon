@@ -4,6 +4,7 @@ import "../styles/Header.css";
 import { Navbar, Nav, Container, Button, Modal, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
+import logo from "../assets/logo.webp";
 
 // Import images for the slider
 import bs1 from "../assets/bs1.webp";
@@ -85,13 +86,22 @@ const Header: React.FC = () => {
   return (
     <header className="header-container">
       {/* Navbar */}
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             {/* Linki nawigacyjne po lewej */}
             <Nav className="me-auto navbar">
-              <Nav.Link className="nav-link" href="#home">
+              <Nav.Link href="#home" className="d-flex align-items-center">
+                <img
+                  src={logo}
+                  alt="Logo"
+                  style={{
+                    width: "70px",
+                    marginRight: "10px",
+                    borderRadius: "50%",
+                  }} // Dostosuj wymiary logo
+                />
                 {t("header.home")}
               </Nav.Link>
               <Nav.Link className="nav-link" href="#about">
@@ -107,18 +117,18 @@ const Header: React.FC = () => {
                 {t("header.contact")}
               </Nav.Link>
             </Nav>
-
-            {/* Sekcja z telefonem i buttonami po prawej */}
-            <Nav className="ms-auto">
-              <Nav.Link href="tel:+48123456789">
-                {t("header.phone")}: +48 123 456 789
-              </Nav.Link>
-              <Button className="btn-book" onClick={handleShowModal}>
-                {t("header.reserve")}
-              </Button>
-              <LanguageSwitcher />
-            </Nav>
           </Navbar.Collapse>
+
+          {/* Sekcja z telefonem i buttonami na prawo */}
+          <div className="navbar-right-section">
+            <Nav.Link href="tel:+48123456789" className="phone-link">
+              {t("header.phone")}: +48 123 456 789
+            </Nav.Link>
+            <Button className="btn-book" onClick={handleShowModal}>
+              {t("header.reserve")}
+            </Button>
+            <LanguageSwitcher />
+          </div>
         </Container>
       </Navbar>
 

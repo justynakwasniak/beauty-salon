@@ -34,9 +34,14 @@
 .image-box {
   width: 250px;
   height: 350px;
-  background-color: var(
-    --primary-color
-  ); /* Placeholder koloru tła dla obrazków */
+  background-color: var(--primary-color);
+  opacity: 0; /* Początkowa przezroczystość */
+  transform: translateY(20px); /* Początkowe przesunięcie */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.image-box.in-view {
+  opacity: 1; /* Pełna widoczność */
+  transform: translateY(0); /* Powrót do pierwotnej pozycji */
 }
 /* Styl dla średnich ekranów (tablety) */
 @media (max-width: 992px) {
