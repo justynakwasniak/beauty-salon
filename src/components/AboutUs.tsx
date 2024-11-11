@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useInView } from "react-intersection-observer"; // Importujemy hook
+import { useInView } from "react-intersection-observer";
 import "../styles/AboutUs.css";
 
 import aboutus1 from "../assets/aboutus1.jpg";
@@ -23,8 +23,8 @@ const AboutUs: React.FC = () => {
   });
 
   const { ref: imageRef, inView: imageInView } = useInView({
-    triggerOnce: true, // Obrazy pojawiają się tylko raz
-    threshold: 0.1, // Element musi być w 10% widoczny, aby uruchomić animację
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
   const handleShowModal = () => {
@@ -61,7 +61,6 @@ const AboutUs: React.FC = () => {
     <section className="about-us-container">
       <div className="container">
         <div className="row">
-          {/* Lewa strona ze zdjęciami */}
           <div
             className={`col-md-6 about-us-images ${
               imageInView ? "in-view" : ""
@@ -80,7 +79,6 @@ const AboutUs: React.FC = () => {
             />
           </div>
 
-          {/* Prawa strona z tekstem i przyciskiem */}
           <div className="col-md-6">
             <p className="about-us">{t("aboutUs.title")}</p>
             <h2>{t("aboutUs.heading")}</h2>
@@ -93,7 +91,6 @@ const AboutUs: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal z formularzem */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           {!messageSent && <Modal.Title>{t("aboutUs.modalTitle")}</Modal.Title>}

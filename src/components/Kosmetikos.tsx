@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useInView } from "react-intersection-observer"; // Importujemy hook
+import { useInView } from "react-intersection-observer";
 import "../styles/Kosmetikos.css";
 
 import beauty1 from "../assets/beauty1.jpg";
@@ -15,7 +15,7 @@ const Kosmetikos: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   const { ref: imageRef2, inView: imageInView2 } = useInView({
     triggerOnce: true,
     threshold: 0.1,

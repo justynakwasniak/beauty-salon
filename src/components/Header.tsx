@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import logo from "../assets/logo.webp";
 
-// Import images for the slider
 import bs1 from "../assets/bs1.webp";
 import bs2 from "../assets/bs2.webp";
 import bs3 from "../assets/bs3.webp";
@@ -85,12 +84,10 @@ const Header: React.FC = () => {
 
   return (
     <header className="header-container">
-      {/* Navbar */}
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            {/* Linki nawigacyjne po lewej */}
             <Nav className="me-auto navbar">
               <Nav.Link href="#home" className="d-flex align-items-center">
                 <img
@@ -100,7 +97,7 @@ const Header: React.FC = () => {
                     width: "70px",
                     marginRight: "10px",
                     borderRadius: "50%",
-                  }} // Dostosuj wymiary logo
+                  }}
                 />
                 {t("header.home")}
               </Nav.Link>
@@ -119,7 +116,6 @@ const Header: React.FC = () => {
             </Nav>
           </Navbar.Collapse>
 
-          {/* Sekcja z telefonem i buttonami na prawo */}
           <div className="navbar-right-section">
             <Nav.Link href="tel:+48123456789" className="phone-link">
               {t("header.phone")}: +48 123 456 789
@@ -132,7 +128,6 @@ const Header: React.FC = () => {
         </Container>
       </Navbar>
 
-      {/* Header Text */}
       <Container className="header-text">
         <div className="text-content">
           <p className="sub-title">{t("header.subtitle")}</p>
@@ -157,7 +152,6 @@ const Header: React.FC = () => {
         </div>
       </Container>
 
-      {/* Slider */}
       <div className="slider-container">
         <div
           className="slider"
@@ -181,7 +175,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           {messageSent ? null : (

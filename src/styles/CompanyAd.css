@@ -1,4 +1,3 @@
-/* Ogólne ustawienia kontenera */
 .company-ad-container {
   display: flex;
   justify-content: space-between;
@@ -9,9 +8,8 @@
   margin-bottom: 100px;
 }
 
-/* Lewa strona z tekstem */
 .company-ad-text {
-  flex: 1; /* Zajmuje 1 część z całości */
+  flex: 1;
   padding-right: 50px;
 }
 
@@ -27,13 +25,11 @@
   color: var(--three-color);
 }
 
-/* Prawa strona z kwadratami */
 .company-ad-info {
   display: flex;
   flex-direction: column;
 }
 
-/* Stylizacja dla pojedynczych kwadratów */
 .info-box {
   background-color: #fff;
   border-radius: 10px;
@@ -41,26 +37,26 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodanie animacji */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-box:hover {
-  transform: scale(1.05) translateY(-5px); /* Powiększenie i lekkie przesunięcie w górę */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Zwiększenie cienia */
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .row.g-3 > [class*="col-"] {
-  margin-bottom: 1.5rem; /* Odstęp między elementami gridu */
+  margin-bottom: 1.5rem;
 }
 
 .info-box h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: var(--secondary-color); /* Kolor liczby */
+  color: var(--secondary-color);
 }
 h2 sup {
-  font-size: 0.7em; /* Zmniejszenie rozmiaru znaku + */
-  vertical-align: 0.2em; /* Podniesienie znaku + */
+  font-size: 0.7em;
+  vertical-align: 0.2em;
 }
 
 .info-box p {
@@ -68,7 +64,6 @@ h2 sup {
   color: var(--three-color);
 }
 
-/* Przesunięcie dolnego rzędu kwadratów */
 .company-ad-info .info-box:nth-child(2),
 .company-ad-info .info-box:nth-child(4) {
   margin-top: 60px;
@@ -78,38 +73,35 @@ h2 sup {
   margin-bottom: 60px;
 }
 .p-companyad {
-  text-align: left; /* Wyrównanie tekstu do lewej */
-  position: relative; /* Ustawienie pozycji względem elementu */
-  padding-left: 60px; /* Odstęp tekstu od linii */
+  text-align: left;
+  position: relative;
+  padding-left: 60px;
   color: var(--three-color);
 }
 .p-companyad::before {
-  content: ""; /* Pusty element do wyświetlenia linii */
+  content: "";
   position: absolute;
-  top: 50%; /* Ustawienie linii na środku wysokości tekstu */
+  top: 50%;
   left: 0;
-  transform: translateY(-50%); /* Wyrównanie linii w pionie do środka */
-  width: 50px; /* Długość linii */
-  height: 1px; /* Grubość linii */
+  transform: translateY(-50%);
+  width: 50px;
+  height: 1px;
   background-color: var(--three-color);
 }
 @media (max-width: 768px) {
-  /* Zmniejszamy padding na mniejszych ekranach */
   .company-ad-container {
     padding: 20px;
   }
 
-  /* Dopasowanie rozmiaru tekstu w nagłówku */
   .company-ad-text h1 {
     font-size: 2rem;
   }
   .company-ad-info .row {
-    gap: 20px; /* Użycie gap na większych ekranach */
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  /* Na bardzo małych ekranach zmniejszamy font-size i padding */
   .company-ad-container {
     padding: 10px;
   }

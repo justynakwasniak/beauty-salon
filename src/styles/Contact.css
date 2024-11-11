@@ -17,12 +17,12 @@
 }
 .contact-left:hover,
 .contact-right:hover {
-  transform: scale(1.05) translateY(-3px); /* Powiększenie i lekkie przesunięcie w górę */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Zwiększenie cienia */
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .contact-left {
-  margin-right: 20px; /* Odstęp między kolumnami */
+  margin-right: 20px;
 }
 .contact-left .form-row {
   display: flex;
@@ -31,59 +31,55 @@
 }
 .contact-left .form-group {
   flex: 1;
-  margin-right: 10px; /* Odstęp między polami */
-  position: relative; /* Umożliwia pozycjonowanie pseudoelementów */
+  margin-right: 10px;
+  position: relative;
   margin-bottom: 20px;
 }
 .contact-left .form-group::after {
-  content: ""; /* Pusty element do wyświetlenia linii */
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%; /* Szerokość linii */
-  height: 1px; /* Grubość linii */
+  width: 100%;
+  height: 1px;
   background-color: var(--three-color);
-  transform: translateY(4px); /* Odstęp między linią a tekstem */
+  transform: translateY(4px);
   z-index: 1;
 }
 
 .contact-left .form-group:last-child {
-  margin-right: 0; /* Usuwa odstęp po ostatnim polu */
+  margin-right: 0;
 }
 
 .contact-left .form-control {
-  background-color: #f1eae3; /* Kolor tła pola tekstowego */
-  color: var(--three-color); /* Kolor tekstu w polu tekstowym */
-  border: none; /* Usunięcie standardowego obramowania */
-  border-bottom: 1px solid var(--three-color); /* Dodanie linii pod polem */
-  padding: 10px; /* Padding w polach tekstowych */
+  background-color: #f1eae3;
+  color: var(--three-color);
+  border: none;
+  border-bottom: 1px solid var(--three-color);
+  padding: 10px;
   border-radius: 1px;
   margin-bottom: 15px;
 }
 .contact-left .form-control:hover {
-  border-bottom-color: var(
-    --secondary-color
-  ); /* Zmiana koloru linii pod polem */
-  color: var(--secondary-color); /* Zmiana koloru tekstu */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Animacja */
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .contact-left .form-control:hover::placeholder {
-  color: var(--secondary-color); /* Kolor placeholdera po najechaniu */
+  color: var(--secondary-color);
 }
 
 .contact-left .form-control:focus::placeholder {
-  color: var(--secondary-color); /* Kolor placeholdera podczas focus */
+  color: var(--secondary-color);
 }
 .contact-left .form-control:focus {
-  outline: none; /* Usunięcie domyślnej obramowania fokusu */
-  box-shadow: none; /* Usunięcie domyślnego cienia fokusu */
+  outline: none;
+  box-shadow: none;
 
-  border-bottom-color: var(
-    --secondary-color
-  ); /* Zmiana koloru linii pod polem */
-  color: var(--secondary-color); /* Zmiana koloru tekstu */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Animacja */
-  outline: none; /* Usunięcie domyślnego niebieskiego obramowania */
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  outline: none;
 }
 
 .contact-left .btn {
@@ -91,7 +87,7 @@
 }
 
 .contact-right {
-  margin-left: 20px; /* Odstęp między kolumnami */
+  margin-left: 20px;
 }
 
 .contact-left h2,
@@ -122,32 +118,32 @@
 
 .contact-right .contact-item i {
   margin-right: 10px;
-  color: var(--three-color); /* Kolor ikony */
-  font-size: 1.2rem; /* Rozmiar ikony */
+  color: var(--three-color);
+  font-size: 1.2rem;
 }
 .contact-right .contact-item i:hover {
   margin-right: 10px;
-  color: var(--secondary-color); /* Kolor ikony */
-  font-size: 1.2rem; /* Rozmiar ikony */
+  color: var(--secondary-color);
+  font-size: 1.2rem;
 
   cursor: pointer;
 }
 
 .contact-right .contact-item span {
-  color: var(--text-color); /* Kolor tekstu */
+  color: var(--text-color);
 }
 .contact-right .contact-item a {
   text-decoration: none;
-  color: var(--three-color); /* Kolor linków */
+  color: var(--three-color);
 }
 
 .contact-right .contact-item a:hover {
-  color: var(--secondary-color); /* Kolor linków po najechaniu */
+  color: var(--secondary-color);
 }
 .p-hours {
-  text-align: left; /* Wyrównanie tekstu do lewej */
-  position: relative; /* Ustawienie pozycji względem elementu */
-  padding-left: 60px; /* Odstęp tekstu od linii */
+  text-align: left;
+  position: relative;
+  padding-left: 60px;
   color: var(--three-color);
   margin-bottom: 10px;
   margin-left: 5px;
@@ -155,23 +151,23 @@
 }
 
 .p-hours::before {
-  content: ""; /* Pusty element do wyświetlenia linii */
+  content: "";
   position: absolute;
-  top: 50%; /* Ustawienie linii na środku wysokości tekstu */
+  top: 50%;
   left: 0;
-  transform: translateY(-50%); /* Wyrównanie linii w pionie do środka */
-  width: 50px; /* Długość linii */
-  height: 1px; /* Grubość linii */
+  transform: translateY(-50%);
+  width: 50px;
+  height: 1px;
   background-color: var(--three-color);
 }
 @media (max-width: 768px) {
   .contact-container {
-    flex-direction: column; /* Przełączenie na układ kolumnowy */
+    flex-direction: column;
   }
 
   .contact-left {
     margin-right: 0;
-    margin-bottom: 20px; /* Dodaj odstęp między kolumnami */
+    margin-bottom: 20px;
   }
 
   .contact-right {

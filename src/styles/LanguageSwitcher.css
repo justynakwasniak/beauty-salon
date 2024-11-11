@@ -7,22 +7,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px; /* Szerokość przycisków jako koła */
-  height: 40px; /* Wysokość przycisków jako koła */
-  border-radius: 50%; /* Zaokrąglone krawędzie tworzące kształt koła */
-  background-color: var(--three-color); /* Kolor tła przycisków */
-  color: var(--primary-color); /* Kolor tekstu */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--three-color);
+  color: var(--primary-color);
   text-align: center;
   font-size: 0.9rem;
-  border: none; /* Brak obramowania */
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 5px;
 }
 
 .language-switcher-button:hover {
-  background-color: var(--secondary-color); /* Zmiana koloru tła na hover */
-  color: var(--primary-color); /* Zmiana koloru tekstu na hover */
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .language-switcher button:hover {

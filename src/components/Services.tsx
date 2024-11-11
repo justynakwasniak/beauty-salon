@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useInView } from "react-intersection-observer"; // Importujemy hook
+import { useInView } from "react-intersection-observer";
 import "../styles/Services.css";
 
 const servicesList = [
@@ -59,7 +59,6 @@ const Services: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Hook useInView dla tła z rozmyciem
   const { ref: backgroundRef, inView: backgroundInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -70,9 +69,7 @@ const Services: React.FC = () => {
       <div
         className={`services-background ${backgroundInView ? "in-view" : ""}`}
         ref={backgroundRef}
-      >
-        {/* Tło z rozmyciem */}
-      </div>
+      ></div>
 
       <div className="services-content">
         <div className="services-header">

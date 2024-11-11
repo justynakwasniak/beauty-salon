@@ -125,7 +125,6 @@ const Contact: React.FC = () => {
         <p className="p-hours2">{t("contact.hoursDetail")}</p>
       </div>
 
-      {/* Modal dla formularza */}
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>{t("contact.confirmationTitle")}</Modal.Title>

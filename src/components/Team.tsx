@@ -1,22 +1,20 @@
 import React from "react";
-import "../styles/Team.css"; // Import stylów CSS
+import "../styles/Team.css";
 import kosmetyczka1 from "../assets/kosmetyczka1.jpg";
 import kosmetyczka2 from "../assets/kosmetyczka2.jpg";
 import kosmetyczka3 from "../assets/kosmetyczka3.jpg";
-import { useTranslation } from "react-i18next"; // Hook do tłumaczeń
+import { useTranslation } from "react-i18next";
 
 const Team: React.FC = () => {
-  const { t } = useTranslation(); // Hook do tłumaczeń
+  const { t } = useTranslation();
 
   return (
     <section className="team-container">
-      {/* Nagłówek */}
       <div>
         <p className="p-team">{t("team.spendingTimeInPleasantAtmosphere")}</p>
         <h2 className="h2-team">{t("team.ourTeam")}</h2>
       </div>
 
-      {/* Sekcja zespołu */}
       <div className="team-members">
         <div className="team-member">
           <img src={kosmetyczka1} alt={t("team.member1.alt")} />

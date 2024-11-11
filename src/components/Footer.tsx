@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Footer.css"; // Importuj plik CSS dla stopki
+import "../styles/Footer.css";
 
 const Footer: React.FC = () => {
   return (

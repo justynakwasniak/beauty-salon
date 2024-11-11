@@ -1,4 +1,3 @@
-/* Kontener sekcji zespołu */
 .team-container {
   text-align: center;
   padding: 50px;
@@ -6,7 +5,6 @@
   margin-bottom: 100px;
 }
 
-/* Nagłówek sekcji */
 .h2-team {
   font-size: 2rem;
   margin-bottom: 10px;
@@ -31,12 +29,11 @@
   background-color: var(--three-color);
 }
 
-/* Stylizacja dla zespołu */
 .team-members {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Odstęp między członkami zespołu */
-  flex-wrap: wrap; /* Umożliwia przenoszenie elementów na kolejną linię na mniejszych ekranach */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .team-member {
@@ -49,8 +46,8 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .team-member:hover {
-  transform: scale(1.05) translateY(-3px); /* Powiększenie i lekkie przesunięcie w górę */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Zwiększenie cienia */
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 .team-member img {
   width: 100%;
@@ -70,7 +67,6 @@
   margin-bottom: 20px;
 }
 
-/* Stylizacja dla ikon social media */
 .team-socials a {
   margin: 0 10px;
   color: #333;
@@ -85,48 +81,44 @@
   color: var(--secondary-color);
 }
 
-/* Styl dla średnich ekranów (tablety) */
 @media (max-width: 992px) {
   .team-member {
-    width: 45%; /* Zwiększamy szerokość, aby zajmowała większą część ekranu */
-    margin-bottom: 20px; /* Dodajemy odstęp między elementami na niższych rozdzielczościach */
-  }
-
-  .team-members {
-    justify-content: center; /* Wyśrodkowanie członków zespołu */
-  }
-}
-
-/* Styl dla małych ekranów (telefony) */
-@media (max-width: 768px) {
-  .team-member {
-    width: 100%; /* Elementy zajmują całą szerokość ekranu */
+    width: 45%;
     margin-bottom: 20px;
   }
 
   .team-members {
-    flex-direction: column; /* Układ pionowy (jeden pod drugim) */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .team-members {
+    flex-direction: column;
     gap: 20px;
   }
 }
 
-/* Styl dla bardzo małych ekranów (telefony poniżej 480px) */
 @media (max-width: 480px) {
   .team-container {
     padding: 20px;
     width: 100%;
-    /* Zmniejszamy padding na bardzo małych ekranach */
   }
 
   .team-member h2 {
-    font-size: 1.3rem; /* Zmniejszamy rozmiar tekstu na małych ekranach */
+    font-size: 1.3rem;
   }
 
   .team-member p {
-    font-size: 1rem; /* Dostosowanie rozmiaru tekstu */
+    font-size: 1rem;
   }
 
   .team-socials a {
-    font-size: 1.2rem; /* Mniejsze ikony social media */
+    font-size: 1.2rem;
   }
 }

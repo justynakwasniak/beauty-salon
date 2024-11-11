@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# 💅 Beauty Salon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Beauty Salon App**! This application is designed to showcase the services, team, and pricing of a beauty salon, making it easy for clients to connect with us and explore what we offer.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Multi-Page Structure**: Navigate between different sections with ease:
+  - **Home**: Welcoming page introducing the salon.
+  - **About Us**: Learn more about the salon's story.
+  - **Services & Pricing**: Explore our range of services and transparent pricing.
+  - **Team**: Meet the talented professionals behind the beauty.
+  - **Contact**: Get in touch with us directly from the app.
+- **Language Toggle**: Easily switch between Polish and English for all content.
+- **Contact Form**: Submit inquiries or requests for more information directly from the contact page.
 
-## Expanding the ESLint configuration
+## 💻 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React + Vite**: Fast and modern development setup with optimized performance.
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Follow these steps to get the app running locally:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Prerequisites
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Node.js** (version 14 or higher)
+- **npm** (comes with Node.js)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/username/beauty-salon.git
+   ```
+
+Navigate to the project folder:
+cd beauty-salon-app
+
+Install dependencies:
+npm install
+
+Run the development server:
+npm run dev
+
+View the app: Open your browser and go to http://localhost:5173.
+
+📦 Additional Commands
+
+Build for production:
+npm run build
+
+Preview production build:
+npm run preview

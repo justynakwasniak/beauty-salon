@@ -13,7 +13,6 @@ const App: React.FC = () => {
   return (
     <div>
       <Header />
-      {/* Dodajemy identyfikatory sekcji */}
       <section id="about">
         <AboutUs />
       </section>
