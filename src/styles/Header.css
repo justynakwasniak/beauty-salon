@@ -65,27 +65,86 @@
   color: var(--three-color);
   position: relative;
 }
-.social-links {
-  position: absolute;
-  left: -270px;
-  bottom: -20px;
+
+/*--- NEW HEADER CUSTOM LAYOUT ---*/
+.header-custom-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: 200px;
+}
+.header-socials-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 52px;
+}
+.header-socials-left a {
+  font-size: 2rem;
+  color: var(--three-color);
+  transition: color 0.2s;
+}
+.header-socials-left a:hover {
+  color: var(--secondary-color);
+}
+.header-titles-center {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  background-color: var(--primary-color);
-  font-size: 24px;
+  justify-content: center;
 }
-
-.social-links a {
-  margin: -5px;
+.beauty-salon-small {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+.beauty-salon-big {
+  font-size: 2.2rem;
+  font-family: inherit;
   color: var(--three-color);
-  transition: color 0.3s ease;
+  font-weight: bold;
+  margin-bottom: 14px;
+  text-align: center;
 }
-
+.header-description {
+  font-size: 1.02rem;
+  color: var(--three-color);
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 0.65rem;
+}
+.header-description .exp-trans {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+  margin-top: 16px;
+  margin-left: -5px;
+}
+.social-links a {
+  font-size: 2rem;
+  color: var(--three-color);
+  transition: color 0.2s;
+}
 .social-links a:hover {
   color: var(--secondary-color);
 }
+
+/*--- END ---*/
 
 .sub-title {
   font-size: 1.5rem;
@@ -165,9 +224,15 @@ h1 {
   background-color: var(--secondary-color);
 }
 .navbar-right-section {
+  display: none;
+}
+
+.navbar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
 }
 
 .phone-link {
@@ -188,6 +253,24 @@ h1 {
 
   .text-content {
     padding: 0 10px;
+  }
+
+  .header-custom-layout {
+    flex-direction: column;
+    gap: 12px;
+    min-width: unset;
+    align-items: center;
+    min-height: 140px;
+  }
+  .header-socials-left {
+    flex-direction: row;
+    gap: 10px;
+    min-width: unset;
+    margin-bottom: 8px;
+    justify-content: center;
+  }
+  .header-titles-center {
+    align-items: center;
   }
 
   .slider {
@@ -223,6 +306,22 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  .beauty-salon-big {
+    font-size: 1.2rem;
+  }
+  .beauty-salon-small {
+    font-size: 0.7rem;
+  }
+  .header-description {
+    font-size: 0.9rem;
+  }
+  .exp-trans {
+    font-size: 0.85rem;
+  }
+  .header-custom-layout {
+    gap: 4px;
+    min-height: 80px;
+  }
   .sub-title {
     font-size: 0.9rem;
   }

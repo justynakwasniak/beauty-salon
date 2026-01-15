@@ -88,67 +88,80 @@ const Header: React.FC = () => {
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto navbar">
-              <Nav.Link href="#home" className="d-flex align-items-center">
+            <Nav className="navbar align-items-center w-100 justify-content-center flex-row" style={{ width: '100%' }}>
+              {/* LOGO */}
+              <Nav.Link href="#home" className="d-flex align-items-center mx-2 p-0">
                 <img
                   src={logo}
                   alt="Logo"
-                  style={{
-                    width: "70px",
-                    marginRight: "10px",
-                    borderRadius: "50%",
-                  }}
+                  style={{ width: "60px", marginRight: "10px", borderRadius: "50%" }}
                 />
+              </Nav.Link>
+              {/* HOME */}
+              <Nav.Link className="nav-link mx-2" href="#home">
                 {t("header.home")}
               </Nav.Link>
-              <Nav.Link className="nav-link" href="#about">
+              {/* ABOUT */}
+              <Nav.Link className="nav-link mx-2" href="#about">
                 {t("header.about")}
               </Nav.Link>
-              <Nav.Link className="nav-link" href="#services">
+              {/* SERVICES & PRICING */}
+              <Nav.Link className="nav-link mx-2" href="#services">
                 {t("header.services")}
               </Nav.Link>
-              <Nav.Link className="nav-link" href="#team">
+              {/* PRICING - jeśli osobny link chcesz */}
+              {/* <Nav.Link className="nav-link mx-2" href="#pricing">
+                {t("header.pricing")}
+              </Nav.Link> */}
+              {/* TEAM */}
+              <Nav.Link className="nav-link mx-2" href="#team">
                 {t("header.team")}
               </Nav.Link>
-              <Nav.Link className="nav-link" href="#contact">
+              {/* CONTACT */}
+              <Nav.Link className="nav-link mx-2" href="#contact">
                 {t("header.contact")}
               </Nav.Link>
+              {/* PHONE with icon  */}
+              <Nav.Link href="tel:+48123456789" className="phone-link d-flex align-items-center mx-2">
+                <i className="fas fa-phone-flip fa-flip-horizontal" style={{fontSize:'1rem',marginRight:'5px'}} />
+                +48 123 456 789
+              </Nav.Link>
+              {/* BOOK ONLINE BUTTON */}
+              <Button className="btn-book mx-2" onClick={handleShowModal}>
+                {t("header.reserve")}
+              </Button>
+              {/* LANGUAGE SWITCHER */}
+              <div className="mx-2">
+                <LanguageSwitcher />
+              </div>
             </Nav>
           </Navbar.Collapse>
-
-          <div className="navbar-right-section">
-            <Nav.Link href="tel:+48123456789" className="phone-link">
-              {t("header.phone")}: +48 123 456 789
-            </Nav.Link>
-            <Button className="btn-book" onClick={handleShowModal}>
-              {t("header.reserve")}
-            </Button>
-            <LanguageSwitcher />
-          </div>
         </Container>
       </Navbar>
 
       <Container className="header-text">
         <div className="text-content">
           <p className="sub-title">{t("header.subtitle")}</p>
-          <h1>{t("header.heading")}</h1>
-          <p className="slogan">{t("header.slogan")}</p>
-          <div className="social-links">
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-instagram "></i>
-            </a>
-            <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-youtube "></i>
-            </a>
+          <div className="heading-social-row">
+            <h1 className="main-heading">{t("header.heading")}</h1>
+            {/* <div className="social-links">
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-instagram "></i>
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-youtube "></i>
+              </a>
+            </div> */}
           </div>
+          <p className="slogan">{t("header.slogan")}</p>
         </div>
       </Container>
 
