@@ -12,7 +12,8 @@ import bs3 from "../assets/bs3.webp";
 
 const images = [bs1, bs2, bs3];
 const BOOKING_API_URL =
-  import.meta.env.VITE_BOOKING_API_URL ?? "http://localhost:3001/api/bookings";
+  import.meta.env.VITE_BOOKING_API_URL ??
+  "https://beauty-salon-yb4o.onrender.com/api/bookings";
 
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
