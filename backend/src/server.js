@@ -8,13 +8,22 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3001;
-const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:5173",
+  "https://beauty-salon-murex.vercel.app",
+];
 const databaseUrl = process.env.DATABASE_URL;
 const { Pool } = pg;
 
 app.use(
   cors({
-    origin: frontendUrl,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
   })
 );
 app.use(express.json());
