@@ -7,7 +7,7 @@ import pg from "pg";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:5173",
   "https://beauty-salon-murex.vercel.app",
@@ -139,8 +139,8 @@ app.get("/api/bookings", async (_req, res) => {
 
 initializeDatabase()
   .then(() => {
-    app.listen(port, () => {
-      console.log(`Backend API listening on http://localhost:${port}`);
+    app.listen(PORT, () => {
+      console.log("Server running on", PORT);
     });
   })
   .catch((error) => {
