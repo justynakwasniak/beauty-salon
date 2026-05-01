@@ -67,7 +67,22 @@ To run backend locally:
 
 Optional test endpoint:
 
-- `GET http://localhost:3001/api/bookings` (returns saved bookings in memory)
+- `GET http://localhost:3001/api/bookings`
+
+### 💾 Persistent data (PostgreSQL)
+
+By default, backend stores bookings in memory (for quick local tests).
+To persist data after restart, set `DATABASE_URL` in `backend/.env`.
+
+Works great with services like Supabase or Neon.
+
+Example:
+
+`DATABASE_URL=postgresql://postgres:password@localhost:5432/beauty_salon`
+
+SQL schema is in:
+
+- `backend/sql/schema.sql`
 
 📦 Additional Commands
 

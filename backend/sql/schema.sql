@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS bookings (
+  id UUID PRIMARY KEY,
+  name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  message TEXT NOT NULL DEFAULT '',
+  source TEXT NOT NULL DEFAULT 'unknown',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
