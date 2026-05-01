@@ -56,6 +56,8 @@ const plTranslation = {
     nameError: "Wpisz imię!",
     confirmation: "Potwierdzenie",
     message2: "Twoja wiadomość została wysłana",
+    sending: "WYSYŁANIE...",
+    sendError: "Nie udało się wysłać formularza. Spróbuj ponownie.",
   },
   aboutUs: {
     imageAlt1: "Zdjęcie 1",

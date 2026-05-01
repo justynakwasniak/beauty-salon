@@ -16,6 +16,7 @@ Welcome to the **Beauty Salon App**! This application is designed to showcase th
 ## 💻 Tech Stack
 
 - **React + Vite**: Fast and modern development setup with optimized performance.
+- **Node.js + Express**: Backend API for handling online booking form submissions.
 
 ## 🚀 Getting Started
 
@@ -39,10 +40,34 @@ cd beauty-salon-app
 Install dependencies:
 npm install
 
+Create frontend env file:
+copy .env.example .env
+
 Run the development server:
 npm run dev
 
 View the app: Open your browser and go to http://localhost:5173.
+
+## 🔌 Backend (Node.js + Express)
+
+The booking form in the header sends data to:
+
+- `POST http://localhost:3001/api/bookings`
+
+To run backend locally:
+
+1. Go to backend folder:
+   `cd backend`
+2. Install dependencies:
+   `npm install`
+3. Create env file from example:
+   `copy .env.example .env`
+4. Start backend:
+   `npm run dev`
+
+Optional test endpoint:
+
+- `GET http://localhost:3001/api/bookings` (returns saved bookings in memory)
 
 📦 Additional Commands
 

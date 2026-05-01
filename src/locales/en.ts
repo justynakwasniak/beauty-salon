@@ -56,6 +56,8 @@ const enTranslation = {
     nameError: "Write name!",
     confirmation: "Confirmation",
     message2: "Your message has been sent",
+    sending: "SENDING...",
+    sendError: "Failed to send the form. Please try again.",
   },
   aboutUs: {
     imageAlt1: "Image 1",

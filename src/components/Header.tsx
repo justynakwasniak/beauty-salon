@@ -11,11 +11,15 @@ import bs2 from "../assets/bs2.webp";
 import bs3 from "../assets/bs3.webp";
 
 const images = [bs1, bs2, bs3];
+const BOOKING_API_URL =
+  import.meta.env.VITE_BOOKING_API_URL ?? "http://localhost:3001/api/bookings";
 
 const Header: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -52,10 +56,11 @@ const Header: React.FC = () => {
   const handleShowModal = () => {
     setShowModal(true);
     setMessageSent(false);
+    setSubmitError(null);
   };
   const handleCloseModal = () => setShowModal(false);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     const newErrors = {
       name: formData.name.trim() === "",
       phone: formData.phone.trim() === "",
@@ -66,13 +71,37 @@ const Header: React.FC = () => {
       return;
     }
 
-    setMessageSent(true);
+    setErrors({ name: false, phone: false });
+    setSubmitError(null);
+    setIsSubmitting(true);
 
-    setFormData({
-      name: "",
-      phone: "",
-      message: "",
-    });
+    try {
+      const response = await fetch(BOOKING_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: "header-book-online",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setMessageSent(true);
+      setFormData({
+        name: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      setSubmitError(t("header.sendError"));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -80,6 +109,12 @@ const Header: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    if (submitError) {
+      setSubmitError(null);
+    }
+    if (errors[name as keyof typeof errors]) {
+      setErrors({ ...errors, [name]: false });
+    }
   };
 
   return (
@@ -243,8 +278,9 @@ const Header: React.FC = () => {
                   placeholder={t("header.message")}
                 />
               </Form.Group>
-              <Button className="button" onClick={handleSend}>
-                {t("header.send")}
+              {submitError && <p className="text-danger mt-2 mb-2">{submitError}</p>}
+              <Button className="button" onClick={handleSend} disabled={isSubmitting}>
+                {isSubmitting ? t("header.sending") : t("header.send")}
               </Button>
             </Form>
           )}
