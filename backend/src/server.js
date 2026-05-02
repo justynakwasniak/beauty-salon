@@ -28,8 +28,8 @@ app.use(
 );
 app.use(express.json());
 
-const bookings = [];
-const pool = databaseUrl
+const bookings = []; 
+const pool = databaseUrl 
   ? new Pool({
       connectionString: databaseUrl,
       ssl: databaseUrl.includes("localhost")
@@ -51,21 +51,40 @@ const initializeDatabase = async () => {
       id UUID PRIMARY KEY,
       name TEXT NOT NULL,
       phone TEXT NOT NULL,
+      service TEXT NOT NULL DEFAULT '',
+      booking_date TEXT NOT NULL DEFAULT '',
+      booking_time TEXT NOT NULL DEFAULT '',
       message TEXT NOT NULL DEFAULT '',
       source TEXT NOT NULL DEFAULT 'unknown',
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `);
+  await pool.query(
+    "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS service TEXT NOT NULL DEFAULT ''"
+  );
+  await pool.query(
+    "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS booking_date TEXT NOT NULL DEFAULT ''"
+  );
+  await pool.query(
+    "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS booking_time TEXT NOT NULL DEFAULT ''"
+  );
   console.log("Connected to PostgreSQL. Using persistent storage.");
 };
 
 app.post("/api/bookings", async (req, res) => {
-  const { name, phone, message = "", source = "unknown" } = req.body ?? {};
+  const { name, phone, service, date, time, message = "", source = "unknown" } =
+    req.body ?? {};
 
-  if (!name?.trim() || !phone?.trim()) {
+  if (
+    !name?.trim() ||
+    !phone?.trim() ||
+    !service?.trim() ||
+    !date?.trim() ||
+    !time?.trim()
+  ) {
     return res.status(400).json({
       success: false,
-      error: "name and phone are required",
+      error: "name, phone, service, date and time are required",
     });
   }
 
@@ -73,6 +92,9 @@ app.post("/api/bookings", async (req, res) => {
     id: randomUUID(),
     name: name.trim(),
     phone: phone.trim(),
+    service: String(service).trim(),
+    date: String(date).trim(),
+    time: String(time).trim(),
     message: String(message).trim(),
     source: String(source).trim(),
     createdAt: new Date().toISOString(),
@@ -81,12 +103,15 @@ app.post("/api/bookings", async (req, res) => {
   try {
     if (pool) {
       await pool.query(
-        `INSERT INTO bookings (id, name, phone, message, source, created_at)
-         VALUES ($1, $2, $3, $4, $5, $6)`,
+        `INSERT INTO bookings (id, name, phone, service, booking_date, booking_time, message, source, created_at)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
         [
           booking.id,
           booking.name,
           booking.phone,
+          booking.service,
+          booking.date,
+          booking.time,
           booking.message,
           booking.source,
           booking.createdAt,
@@ -112,7 +137,7 @@ app.get("/api/bookings", async (_req, res) => {
   try {
     if (pool) {
       const result = await pool.query(
-        `SELECT id, name, phone, message, source, created_at AS "createdAt"
+        `SELECT id, name, phone, service, booking_date AS "date", booking_time AS "time", message, source, created_at AS "createdAt"
          FROM bookings
          ORDER BY created_at DESC`
       );

@@ -24,11 +24,17 @@ const Header: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    service: "",
+    date: "",
+    time: "",
     message: "",
   });
   const [errors, setErrors] = useState({
     name: false,
     phone: false,
+    service: false,
+    date: false,
+    time: false,
   });
   const { t } = useTranslation();
 
@@ -65,14 +71,29 @@ const Header: React.FC = () => {
     const newErrors = {
       name: formData.name.trim() === "",
       phone: formData.phone.trim() === "",
+      service: formData.service.trim() === "",
+      date: formData.date.trim() === "",
+      time: formData.time.trim() === "",
     };
 
-    if (newErrors.name || newErrors.phone) {
+    if (
+      newErrors.name ||
+      newErrors.phone ||
+      newErrors.service ||
+      newErrors.date ||
+      newErrors.time
+    ) {
       setErrors(newErrors);
       return;
     }
 
-    setErrors({ name: false, phone: false });
+    setErrors({
+      name: false,
+      phone: false,
+      service: false,
+      date: false,
+      time: false,
+    });
     setSubmitError(null);
     setIsSubmitting(true);
 
@@ -96,6 +117,9 @@ const Header: React.FC = () => {
       setFormData({
         name: "",
         phone: "",
+        service: "",
+        date: "",
+        time: "",
         message: "",
       });
     } catch {
@@ -106,7 +130,7 @@ const Header: React.FC = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -265,6 +289,53 @@ const Header: React.FC = () => {
                 />
                 <Form.Control.Feedback type="invalid">
                   {t("header.phoneError")}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="formService">
+                <Form.Label>{t("header.service")}</Form.Label>
+                <Form.Control
+                  as="select"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  isInvalid={errors.service}
+                >
+                  <option value="">{t("header.chooseService")}</option>
+                  <option value="manicure">{t("header.serviceManicure")}</option>
+                  <option value="botox">{t("header.serviceBotox")}</option>
+                  <option value="rzesy">{t("header.serviceLashes")}</option>
+                </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  {t("header.serviceError")}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="formDate">
+                <Form.Label>{t("header.date")}</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  isInvalid={errors.date}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {t("header.dateError")}
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="formTime">
+                <Form.Label>{t("header.time")}</Form.Label>
+                <Form.Control
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  isInvalid={errors.time}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {t("header.timeError")}
                 </Form.Control.Feedback>
               </Form.Group>
 
