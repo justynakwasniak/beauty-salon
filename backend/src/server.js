@@ -18,7 +18,12 @@ const { Pool } = pg;
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      const isLocalhost =
+        !!origin &&
+        (origin.startsWith("http://localhost:") ||
+          origin.startsWith("http://127.0.0.1:"));
+
+      if (!origin || isLocalhost || allowedOrigins.includes(origin)) {
         callback(null, true);
         return;
       }
@@ -74,17 +79,25 @@ const initializeDatabase = async () => {
 app.post("/api/bookings", async (req, res) => {
   const { name, phone, service, date, time, message = "", source = "unknown" } =
     req.body ?? {};
+  const normalizedTime = String(time ?? "").trim();
 
   if (
     !name?.trim() ||
     !phone?.trim() ||
     !service?.trim() ||
     !date?.trim() ||
-    !time?.trim()
+    !normalizedTime
   ) {
     return res.status(400).json({
       success: false,
       error: "name, phone, service, date and time are required",
+    });
+  }
+
+  if (!/^\d{2}:00$/.test(normalizedTime)) {
+    return res.status(400).json({
+      success: false,
+      error: "time must be a full hour (HH:00)",
     });
   }
 
@@ -94,7 +107,7 @@ app.post("/api/bookings", async (req, res) => {
     phone: phone.trim(),
     service: String(service).trim(),
     date: String(date).trim(),
-    time: String(time).trim(),
+    time: normalizedTime,
     message: String(message).trim(),
     source: String(source).trim(),
     createdAt: new Date().toISOString(),

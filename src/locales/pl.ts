@@ -63,6 +63,7 @@ const plTranslation = {
     date: "Data",
     dateError: "Wybierz datę!",
     time: "Godzina",
+    chooseTime: "Wybierz godzinę*",
     timeError: "Wybierz godzinę!",
     confirmation: "Potwierdzenie",
     message2: "Twoja wiadomość została wysłana",

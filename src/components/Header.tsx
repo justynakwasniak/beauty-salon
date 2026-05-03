@@ -11,6 +11,9 @@ import bs2 from "../assets/bs2.webp";
 import bs3 from "../assets/bs3.webp";
 
 const images = [bs1, bs2, bs3];
+const availableHours = Array.from({ length: 10 }, (_, index) =>
+  `${String(index + 9).padStart(2, "0")}:00`
+);
 const BOOKING_API_URL =
   import.meta.env.VITE_BOOKING_API_URL ??
   "https://beauty-salon-yb4o.onrender.com/api/bookings";
@@ -328,12 +331,19 @@ const Header: React.FC = () => {
               <Form.Group controlId="formTime">
                 <Form.Label>{t("header.time")}</Form.Label>
                 <Form.Control
-                  type="time"
+                  as="select"
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
                   isInvalid={errors.time}
-                />
+                >
+                  <option value="">{t("header.chooseTime")}</option>
+                  {availableHours.map((hour) => (
+                    <option key={hour} value={hour}>
+                      {hour}
+                    </option>
+                  ))}
+                </Form.Control>
                 <Form.Control.Feedback type="invalid">
                   {t("header.timeError")}
                 </Form.Control.Feedback>

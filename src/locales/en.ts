@@ -63,6 +63,7 @@ const enTranslation = {
     date: "Date",
     dateError: "Choose a date!",
     time: "Time",
+    chooseTime: "Choose time*",
     timeError: "Choose a time!",
     confirmation: "Confirmation",
     message2: "Your message has been sent",
